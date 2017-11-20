@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sample.Mvvm
 {
-    public class ObservableObject : INotifyPropertyChanged
+    public abstract class ObservableObject : INotifyPropertyChanged
     {
         #region Events
 
