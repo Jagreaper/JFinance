@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Samples.WPF
+namespace Sample.Windows.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,7 +22,7 @@ namespace Samples.WPF
     {
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
