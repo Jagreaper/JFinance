@@ -6,6 +6,7 @@ namespace JFinace.Data
 {
     public enum TransactionType
     {
+        None,
         Credit,
         Debit,
     }
@@ -14,26 +15,26 @@ namespace JFinace.Data
     {
         #region Fields
 
-        private ObservableCollection<string> tags;
-
-        private string category;
-
-        public TransactionType transactionType;
-
         public double amount;
 
-        public DateTime timestamp;
+        private string category = "None";
 
-        public string description;
+        public string description = "None";
+
+        private ObservableCollection<string> tags = new ObservableCollection<string>();
+
+        public DateTime timestamp = DateTime.Now;
+
+        public TransactionType transactionType = TransactionType.None;
 
         #endregion
 
         #region Properties
 
-        public ObservableCollection<string> Tags
+        public double Amount
         {
-            get => this.tags;
-            set => this.Set(ref this.tags, value);
+            get => this.amount;
+            set => this.Set(ref this.amount, value);
         }
 
         public string Category
@@ -42,16 +43,16 @@ namespace JFinace.Data
             set => this.Set(ref this.category, value);
         }
 
-        public TransactionType TransactionType
+        public string Description
         {
-            get => this.transactionType;
-            set => this.Set(ref this.transactionType, value);
+            get => this.description;
+            set => this.Set(ref this.description, value);
         }
 
-        public double Amount
+        public ObservableCollection<string> Tags
         {
-            get => this.amount;
-            set => this.Set(ref this.amount, value);
+            get => this.tags;
+            set => this.Set(ref this.tags, value);
         }
 
         public DateTime Timestamp
@@ -60,10 +61,10 @@ namespace JFinace.Data
             set => this.Set(ref this.timestamp, value);
         }
 
-        public string Description
+        public TransactionType TransactionType
         {
-            get => this.description;
-            set => this.Set(ref this.description, value);
+            get => this.transactionType;
+            set => this.Set(ref this.transactionType, value);
         }
 
         #endregion
