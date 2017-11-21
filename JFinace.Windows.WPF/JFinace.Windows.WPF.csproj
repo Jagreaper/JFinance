@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>JFinace.Windows.WPF</RootNamespace>
     <AssemblyName>JFinace.Windows.WPF</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -29,6 +30,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,24 +55,38 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.280\lib\netstandard1.0\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.280\lib\netstandard1.0\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.280\lib\netstandard1.0\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\PathButton.cs" />
+    <Compile Include="Controls\PathRadioButton.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\SummaryView.xaml.cs">
       <DependentUpon>SummaryView.xaml</DependentUpon>
     </Compile>
@@ -85,6 +102,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\SummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -108,15 +140,30 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\SegoeWP-Black.ttf" />
+    <Resource Include="Resources\Fonts\SegoeWP-Bold.ttf" />
+    <Resource Include="Resources\Fonts\SegoeWP-Light.ttf" />
+    <Resource Include="Resources\Fonts\SegoeWP-Semibold.ttf" />
+    <Resource Include="Resources\Fonts\SegoeWP-Semilight.ttf" />
+    <Resource Include="Resources\Fonts\SegoeWP.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JFinace.Data\JFinace.Data.csproj">
+      <Project>{62029452-cab5-492d-948d-4374d7d88fbe}</Project>
+      <Name>JFinace.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JFinace.Extensions\JFinace.Extensions.csproj">
+      <Project>{f47932d7-d886-4b64-a8c3-d8d87b581133}</Project>
+      <Name>JFinace.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JFinace.Mvvm\JFinace.Mvvm.csproj">
       <Project>{986bbca1-9d1e-4294-bbaa-74589e7a1ca7}</Project>
       <Name>JFinace.Mvvm</Name>
@@ -134,5 +181,19 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Licenses.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\icon.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.280\build\netstandard1.0\Xamarin.Forms.targets')" />
 </Project>

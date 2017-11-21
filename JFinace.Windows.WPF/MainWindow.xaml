@@ -4,9 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JFinace.Windows.WPF"
+        xmlns:controls="clr-namespace:JFinace.Windows.WPF.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="10 10 10 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <controls:PathRadioButton Content="Home" FontSize="{StaticResource FontSizeL}"
+							        PathData="{StaticResource HomePath}"
+                                    FlowDirection="LeftToRight" IsChecked="True"
+							        Padding="10 5" BorderThickness="0 4 0 0"
+							        Command="{Binding NavigateCommand}" CommandParameter="NavigateHome"/>
+        </DockPanel>
+
+        <ContentControl Grid.Row="1" Content="{Binding ContentControl}"/>
     </Grid>
 </Window>
