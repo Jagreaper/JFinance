@@ -3,7 +3,7 @@
   <Identity Name="647a4e94-d68b-4920-85b0-e347aebf1f17" Publisher="CN=James" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="647a4e94-d68b-4920-85b0-e347aebf1f17" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Sample.Windows.Universal</DisplayName>
+    <DisplayName>JFinace.Windows.Universal</DisplayName>
     <PublisherDisplayName>Jagreaper</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -14,8 +14,8 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Sample.Windows.Universal.App">
-      <uap:VisualElements DisplayName="Sample.Windows.Universal" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Sample.Windows.Universal" BackgroundColor="transparent">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="JFinace.Windows.Universal.App">
+      <uap:VisualElements DisplayName="JFinace.Windows.Universal" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="JFinace.Windows.Universal" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

@@ -7,8 +7,8 @@
     <ProjectGuid>{9EC4021D-5332-4CCD-B4F0-32F1D639B61D}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sample.Windows.Universal</RootNamespace>
-    <AssemblyName>Sample.Windows.Universal</AssemblyName>
+    <RootNamespace>JFinace.Windows.Universal</RootNamespace>
+    <AssemblyName>JFinace.Windows.Universal</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
@@ -104,7 +104,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Samples.Windows.Universal_TemporaryKey.pfx" />
+    <None Include="JFinace.Windows.Universal.TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />
@@ -132,9 +132,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sample.Mvvm\Sample.Mvvm.csproj">
+    <ProjectReference Include="..\JFinace.Mvvm\JFinace.Mvvm.csproj">
       <Project>{986bbca1-9d1e-4294-bbaa-74589e7a1ca7}</Project>
-      <Name>Sample.Mvvm</Name>
+      <Name>JFinace.Mvvm</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

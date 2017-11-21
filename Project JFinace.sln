@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Windows.WPF", "Sample.Windows.WPF\Sample.Windows.WPF.csproj", "{07098807-AE51-478F-803C-1DE332A6449B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JFinace.Windows.WPF", "JFinace.Windows.WPF\JFinace.Windows.WPF.csproj", "{07098807-AE51-478F-803C-1DE332A6449B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Mvvm", "Sample.Mvvm\Sample.Mvvm.csproj", "{986BBCA1-9D1E-4294-BBAA-74589E7A1CA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JFinace.Mvvm", "JFinace.Mvvm\JFinace.Mvvm.csproj", "{986BBCA1-9D1E-4294-BBAA-74589E7A1CA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Windows.Universal", "Sample.Windows.Universal\Sample.Windows.Universal.csproj", "{9EC4021D-5332-4CCD-B4F0-32F1D639B61D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JFinace.Windows.Universal", "JFinace.Windows.Universal\JFinace.Windows.Universal.csproj", "{9EC4021D-5332-4CCD-B4F0-32F1D639B61D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

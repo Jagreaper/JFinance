@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Sample.Mvvm</AssemblyName>
-    <RootNamespace>Sample.Mvvm</RootNamespace>
+    <AssemblyName>JFinace.Mvvm</AssemblyName>
+    <RootNamespace>JFinace.Mvvm</RootNamespace>
     <Authors>Jagreaper</Authors>
     <Company>Jagerts</Company>
   </PropertyGroup>

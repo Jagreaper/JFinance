@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Samples.Windows.Universal
+namespace JFinace.Windows.Universal
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -29,7 +29,7 @@ namespace Samples.Windows.Universal
         public App()
         {
             this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            this.Suspending += this.OnSuspending;
         }
 
         /// <summary>

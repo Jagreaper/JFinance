@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Sample.Mvvm
+namespace JFinace.Mvvm
 {
     public class RelayCommand : ICommand
     {

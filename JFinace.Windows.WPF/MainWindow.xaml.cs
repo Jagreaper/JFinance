@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sample.Windows.WPF
+namespace JFinace.Windows.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
