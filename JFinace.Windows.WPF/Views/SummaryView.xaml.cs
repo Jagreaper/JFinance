@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JFinace.Windows.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,8 @@ namespace JFinace.Windows.WPF.Views
     {
         public SummaryView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+            this.DataContext = new SummaryViewModel();
         }
     }
 }

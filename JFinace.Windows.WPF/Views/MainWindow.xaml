@@ -19,7 +19,13 @@
                                       FlowDirection="LeftToRight" IsChecked="True"
 							          Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateHome"/>
-            
+
+            <controls:PathRadioButton Content="Summary" FontSize="{StaticResource FontSizeL}"
+							          PathData="{StaticResource SummaryPath}"
+                                      FlowDirection="LeftToRight" IsChecked="False"
+							          Padding="10 5" BorderThickness="0 4 0 0"
+							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSummary"/>
+
             <controls:PathRadioButton Content="Themes" FontSize="{StaticResource FontSizeL}"
 							          PathData="{StaticResource ThemePath}"
                                       FlowDirection="LeftToRight" IsChecked="False"

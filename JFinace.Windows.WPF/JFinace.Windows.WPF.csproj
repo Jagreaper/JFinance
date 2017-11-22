@@ -87,6 +87,7 @@
     <Compile Include="Controls\PathButton.cs" />
     <Compile Include="Controls\PathRadioButton.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SummaryViewModel.cs" />
     <Compile Include="Views\SummaryView.xaml.cs">
       <DependentUpon>SummaryView.xaml</DependentUpon>
     </Compile>
@@ -185,8 +186,11 @@
     <Resource Include="Licenses.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\dollar-symbol.svg" />
     <Content Include="Assets\icon.svg" />
-    <Content Include="Assets\settings-work-tool.svg" />
+    <Content Include="Assets\settings-work-tool.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Assets\theme.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
