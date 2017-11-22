@@ -16,7 +16,6 @@ namespace JFinace.Windows.WPF.ViewModels
         public MainViewModel()
         {
             this.NavigateCommand = new RelayCommand<string>(this.Navigate);
-            this.ContentControl = new SummaryView();
         }
 
         #endregion
@@ -49,6 +48,7 @@ namespace JFinace.Windows.WPF.ViewModels
                     this.ContentControl = new SummaryView();
                     break;
                 default:
+                    this.ContentControl = null;
                     break;
             }
         }

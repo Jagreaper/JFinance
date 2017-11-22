@@ -1,4 +1,4 @@
-﻿using JFinace.Data;
+﻿using JFinace.Models;
 using JFinace.Mvvm;
 using System;
 using System.Collections.Generic;

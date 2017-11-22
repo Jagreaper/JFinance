@@ -1,4 +1,4 @@
-﻿using JFinace.Data;
+﻿using JFinace.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,6 +19,7 @@ namespace JFinace.Windows.WPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            Transactions.Add(new TransactionModel());
             base.OnStartup(e);
         }
 

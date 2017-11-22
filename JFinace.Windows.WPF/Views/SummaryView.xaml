@@ -3,10 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:models="clr-namespace:JFinace.Models"
+             xmlns:selectors="clr-namespace:JFinace.Windows.WPF.Selectors"
              xmlns:local="clr-namespace:JFinace.Windows.WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type models:TransactionModel}" x:Key="TransactionModelTemplate">
+            <Grid>
+                <DockPanel>
+                    <Border HorizontalAlignment="Left" Margin="0 0 10 0" BorderThickness="5 0 0 0"
+                                    BorderBrush="Green">
+                    </Border>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                        <TextBlock Margin="0 0 0 5" HorizontalAlignment="Right" Text="{Binding Description}"/>
+                    </StackPanel>
+                </DockPanel>
+            </Grid>
+        </DataTemplate>
+
+        <selectors:TransactionsSelectionDataTemplateSelector 
+            x:Key="TransactionsSelectionDataTemplateSelector"
+            TransactionTemplate="{StaticResource TransactionModelTemplate}"/>
+    </UserControl.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Margin="0 0 0 5" Text="Transactions"/>
+
+            <ListBox Margin="0 5 0 5" BorderThickness="0" x:Name="ListBox" ItemTemplateSelector="{StaticResource TransactionsSelectionDataTemplateSelector}"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemsSource="{Binding Transactions}">
+            </ListBox>
+        </StackPanel>
+
+        <Grid Grid.Column="1">
             
+        </Grid>
     </Grid>
 </UserControl>
