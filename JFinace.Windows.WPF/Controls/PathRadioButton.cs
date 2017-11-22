@@ -29,13 +29,13 @@ namespace JFinace.Windows.WPF.Controls
 
         public Geometry PathData
         {
-            get => (Geometry) this.GetValue(PathDataProperty);
+            get => (Geometry)this.GetValue(PathDataProperty);
             set => this.SetValue(PathDataProperty, value);
         }
 
         public Style PathStyle
         {
-            get => (Style) this.GetValue(PathStyleProperty);
+            get => (Style)this.GetValue(PathStyleProperty);
             set => this.SetValue(PathStyleProperty, value);
         }
 
