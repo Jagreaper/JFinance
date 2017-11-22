@@ -89,6 +89,8 @@
     </ApplicationDefinition>
     <Compile Include="Controls\PathButton.cs" />
     <Compile Include="Controls\PathRadioButton.cs" />
+    <Compile Include="Converters\TransactionTypeToBrushConverter.cs" />
+    <Compile Include="Converters\TransactionTypeDoubleStringConverter.cs" />
     <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="Selectors\TransactionsSelectionDataTemplateSelector.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -196,9 +198,7 @@
     </Content>
     <Content Include="Assets\theme.svg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
