@@ -16,6 +16,8 @@ namespace JFinance.Windows.WPF.ViewModels
         public SummaryViewModel()
         {
             this.Transactions = ((App)App.Current).Transactions;
+            this.ComboBoxItems.Add("7 Days");
+            this.ComboBoxItems.Add("14 Days");
             this.ComboBoxItems.Add("30 Days");
             this.ComboBoxItems.Add("60 Days");
             this.ComboBoxItems.Add("90 Days");
@@ -97,27 +99,16 @@ namespace JFinance.Windows.WPF.ViewModels
         {
             get
             {
-                switch (this.DurationString)
-                {
-                    case "30 Days":
-                        return 30;
-                    case "60 Days":
-                        return 60;
-                    case "90 Days":
-                        return 90;
-                    case "6 Months":
-                        return 180;
-                    case "1 Year":
-                        return 365;
-                    case "2 Years":
-                        return 730;
-                    case "5 Years":
-                        return 1825;
-                    case "Lifetime":
-                        return null;
-                    default:
-                        throw new NotSupportedException();
-                }
+                if (this.DurationString == "Lifetime")
+                    return null;
+                else if (this.DurationString.Contains("Days"))
+                    return int.Parse(this.DurationString.Split(' ')[0]);
+                else if (this.DurationString.Contains("Months"))
+                    return int.Parse(this.DurationString.Split(' ')[0]) * 30;
+                else if (this.DurationString.Contains("Year") || this.DurationString.Contains("Years"))
+                    return int.Parse(this.DurationString.Split(' ')[0]) * 30;
+
+                throw new NotSupportedException();
             }
         }
 

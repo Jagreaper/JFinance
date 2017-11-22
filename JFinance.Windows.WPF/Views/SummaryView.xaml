@@ -107,7 +107,6 @@
 
                                 <ComboBox ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}"/>
                             </StackPanel>
-
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
