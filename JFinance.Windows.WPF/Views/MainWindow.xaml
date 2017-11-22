@@ -5,16 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JFinance.Windows.WPF.Views"
         xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls"
-        mc:Ignorable="d"
-        Title="Project JFinance" Height="600" Width="800"
-        Background="{StaticResource BackgroundBrush}">
+        mc:Ignorable="d" Height="600" Width="800" MinHeight="600" MinWidth="800"
+        Title="Project JFinance" Background="{StaticResource BackgroundBrush}">
     <Grid Margin="10 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left">
             <controls:PathRadioButton Content="Home" FontSize="{StaticResource FontSizeL}"
 							          PathData="{StaticResource HomePath}"
                                       FlowDirection="LeftToRight" IsChecked="True"
@@ -27,12 +32,26 @@
 							          Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSummary"/>
 
+            <controls:PathRadioButton Content="Breakdown" FontSize="{StaticResource FontSizeL}"
+							          PathData="{StaticResource GraphPath}"
+                                      FlowDirection="LeftToRight" IsChecked="False"
+							          Padding="10 5" BorderThickness="0 4 0 0"
+							          Command="{Binding NavigateCommand}" CommandParameter="NavigateGraph"/>
+
+            <controls:PathRadioButton Content="Debts" FontSize="{StaticResource FontSizeL}"
+							          PathData="{StaticResource PeoplePath}"
+                                      FlowDirection="LeftToRight" IsChecked="False"
+							          Padding="10 5" BorderThickness="0 4 0 0"
+							          Command="{Binding NavigateCommand}" CommandParameter="NavigateDebts"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right">
             <controls:PathRadioButton Content="Themes" FontSize="{StaticResource FontSizeL}"
 							          PathData="{StaticResource ThemePath}"
                                       FlowDirection="LeftToRight" IsChecked="False"
 							          Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateThemes"/>
-            
+
             <controls:PathRadioButton Content="Settings" FontSize="{StaticResource FontSizeL}"
 							          PathData="{StaticResource SettingsPath}"
                                       FlowDirection="LeftToRight" IsChecked="False"
@@ -40,6 +59,6 @@
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSettings"/>
         </DockPanel>
 
-        <ContentControl Grid.Row="1" Margin="0 10 0 0" Content="{Binding ContentControl}"/>
+        <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0 10 0 0" Content="{Binding ContentControl}"/>
     </Grid>
 </Window>

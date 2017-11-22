@@ -193,6 +193,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Assets\icon.svg" />
+    <Content Include="Assets\man-user.svg" />
+    <Content Include="Assets\marketing-pie-chart-pieces.svg" />
     <Content Include="Assets\settings-work-tool.svg">
       <SubType>Designer</SubType>
     </Content>
