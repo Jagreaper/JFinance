@@ -27,14 +27,14 @@
             x:Key="TransactionsSelectionDataTemplateSelector"
             TransactionTemplate="{StaticResource TransactionModelTemplate}"/>
     </UserControl.Resources>
-    <Grid>
+    <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
-            <TextBlock Margin="0 0 0 5" Text="Transactions"/>
+            <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Transactions"/>
 
             <ListBox Margin="0 5 0 5" BorderThickness="0" x:Name="ListBox" ItemTemplateSelector="{StaticResource TransactionsSelectionDataTemplateSelector}"
                  ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemsSource="{Binding Transactions}">
