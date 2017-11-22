@@ -19,7 +19,17 @@ namespace JFinance.Windows.WPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            Transactions.Add(new TransactionModel());
+            Transactions.Add(new TransactionModel()
+            {
+                Amount = 50.34,
+                TransactionType = TransactionType.Credit,
+            });
+
+            Transactions.Add(new TransactionModel()
+            {
+                Amount = 26.79,
+                TransactionType = TransactionType.Debit,
+            });
             base.OnStartup(e);
         }
 

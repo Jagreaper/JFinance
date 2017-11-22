@@ -14,25 +14,40 @@
         <converters:TransactionTypeDoubleStringConverter x:Key="TransactionTypeDoubleStringConverter"/>
         
         <DataTemplate DataType="{x:Type models:TransactionModel}" x:Key="TransactionModelTemplate">
-            <Grid>
+            <Grid Margin="5 5 5 5">
                 <DockPanel>
-                    <Border HorizontalAlignment="Left" Margin="0 0 10 0" BorderThickness="5 0 0 0"
+                    <Border HorizontalAlignment="Left" Margin="0 0 5 0" BorderThickness="5 0 0 0"
                             BorderBrush="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
 
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}"
-                                   Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
-                            <TextBlock.Text>
-                                <MultiBinding Converter="{StaticResource TransactionTypeDoubleStringConverter}">
-                                    <Binding Path="Amount"/>
-                                    <Binding Path="TransactionType"/>
-                                </MultiBinding>
-                            </TextBlock.Text>
-                        </TextBlock>
-                        
-                        <TextBlock Margin="0 0 0 5" Text="{Binding Category}"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding Description}"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding Timestamp}"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0 0 0 0" Text="Category         " FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
+                            <TextBlock Margin="0 0 0 0" Text="{Binding Category}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0 0 0 0" Text="Date                " FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
+                            <TextBlock Margin="0 0 0 0" Text="{Binding Timestamp}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0 0 0 0" Text="Amount          " FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
+                            <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSizeL}"
+                                       Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource TransactionTypeDoubleStringConverter}">
+                                        <Binding Path="Amount"/>
+                                        <Binding Path="TransactionType"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0 0 0 0" Text="Description     " FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
+                            <TextBlock Margin="0 0 0 0" Text="{Binding Description}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
+                        </StackPanel>
                     </StackPanel>
                 </DockPanel>
             </Grid>
