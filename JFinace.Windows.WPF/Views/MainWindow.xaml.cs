@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JFinace.Windows.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace JFinace.Windows.WPF
+namespace JFinace.Windows.WPF.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +24,7 @@ namespace JFinace.Windows.WPF
         public MainWindow()
         {
             this.InitializeComponent();
+            this.DataContext = new MainViewModel();
         }
     }
 }
