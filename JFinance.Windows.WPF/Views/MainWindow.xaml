@@ -19,7 +19,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <DockPanel>
             <controls:PathRadioButton Content="Home" FontSize="{StaticResource FontSizeL}"
 							          PathData="{StaticResource HomePath}"
                                       FlowDirection="LeftToRight" IsChecked="True"
@@ -45,7 +45,7 @@
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateDebts"/>
         </DockPanel>
 
-        <DockPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right">
+        <DockPanel Grid.Column="2" HorizontalAlignment="Right">
             <controls:PathRadioButton Content="Themes" FontSize="{StaticResource FontSizeL}"
 							          PathData="{StaticResource ThemePath}"
                                       FlowDirection="LeftToRight" IsChecked="False"
@@ -59,6 +59,6 @@
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSettings"/>
         </DockPanel>
 
-        <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Content="{Binding ContentControl}"/>
+        <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding ContentControl}"/>
     </Grid>
 </Window>
