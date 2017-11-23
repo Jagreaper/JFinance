@@ -89,20 +89,20 @@
 
                 <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
                     <StackPanel Orientation="Vertical" Margin="0 0 20 0">
-                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Income"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" FontSize="{StaticResource FontSize}" Foreground="Green"/>
-
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Balance"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding BalanceString}" FontSize="{StaticResource FontSize}"
-                                       Foreground="{Binding BalanceTransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
+                        <TextBlock Margin="0 0 0 10" Text="{Binding BalanceString}" FontSize="{StaticResource FontSize}" Width="78"
+                                   Foreground="{Binding BalanceTransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
+                        
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Income"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" FontSize="{StaticResource FontSize}" Foreground="Green" Width="78"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Spendings"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" FontSize="{StaticResource FontSize}" Foreground="Red"/>
-
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Past"/>
-                        <ComboBox ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}"/>
+                        <ComboBox Margin="0 0 0 5" ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}" Width="78"/>
+                        
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Spendings"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" FontSize="{StaticResource FontSize}" Foreground="Red" Width="78"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
