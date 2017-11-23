@@ -12,7 +12,7 @@
     <UserControl.Resources>
         <converters:TransactionTypeToBrushConverter x:Key="TransactionTypeToBrushConverter"/>
         <converters:TransactionTypeDoubleStringConverter x:Key="TransactionTypeDoubleStringConverter"/>
-        
+
         <DataTemplate DataType="{x:Type models:TransactionModel}" x:Key="TransactionModelTemplate">
             <Grid Margin="5 5 5 5">
                 <DockPanel>
@@ -57,7 +57,7 @@
             x:Key="TransactionsSelectionDataTemplateSelector"
             TransactionTemplate="{StaticResource TransactionModelTemplate}"/>
     </UserControl.Resources>
-    
+
     <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -78,39 +78,28 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <StackPanel>
-                    <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Overview"/>
+            <StackPanel Grid.Row="0">
+                <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Overview"/>
 
-                    <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Vertical" Margin="0 0 20 0">
-                                <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Income"/>
-                                <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" FontSize="{StaticResource FontSize}" Foreground="Green"/>
-                            </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Margin="0 0 20 0">
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Income"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" FontSize="{StaticResource FontSize}" Foreground="Green"/>
 
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Spendings"/>
-                                <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" FontSize="{StaticResource FontSize}" Foreground="Red"/>
-                            </StackPanel>
-                        </StackPanel>
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Balance"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding BalanceString}" FontSize="{StaticResource FontSize}"
+                                       Foreground="{Binding BalanceTransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
+                    </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Vertical" Margin="0 0 20 0">
-                                <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Balance"/>
-                                <TextBlock Margin="0 0 0 5" Text="{Binding BalanceString}" FontSize="{StaticResource FontSize}"
-                                           Foreground="{Binding BalanceTransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
-                            </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Spendings"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" FontSize="{StaticResource FontSize}" Foreground="Red"/>
 
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Past"/>
-
-                                <ComboBox ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}"/>
-                            </StackPanel>
-                        </StackPanel>
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Past"/>
+                        <ComboBox ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}"/>
                     </StackPanel>
                 </StackPanel>
-            </Grid>
+            </StackPanel>
 
             <StackPanel Grid.Row="1">
 
