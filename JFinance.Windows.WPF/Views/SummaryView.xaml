@@ -25,21 +25,18 @@
                     <Border HorizontalAlignment="Left" Margin="0 0 5 0" BorderThickness="5 0 0 0"
                             BorderBrush="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
 
-                    <StackPanel Orientation="Vertical">
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0 0 0 0" Text="Category         " FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
-                            <TextBlock Margin="0 0 0 0" Text="{Binding Category}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical" Margin="0 0 10 0">
+                            <TextBlock Text="Category" FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
+                            <TextBlock Text="Date" FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
+                            <TextBlock Text="Amount" FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
+                            <TextBlock Text="Description" FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0 0 0 0" Text="Date                " FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
-                            <TextBlock Margin="0 0 0 0" Text="{Binding Timestamp}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0 0 0 0" Text="Amount          " FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
-                            <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSizeL}"
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Category}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
+                            <TextBlock Text="{Binding Timestamp}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
+                            <TextBlock FontSize="{StaticResource FontSizeL}"
                                        Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
                                 <TextBlock.Text>
                                     <MultiBinding Converter="{StaticResource TransactionTypeDoubleToStringConverter}">
@@ -48,11 +45,7 @@
                                     </MultiBinding>
                                 </TextBlock.Text>
                             </TextBlock>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0 0 0 0" Text="Description     " FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
-                            <TextBlock Margin="0 0 0 0" Text="{Binding Description}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
+                            <TextBlock Text="{Binding Description}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
                         </StackPanel>
                     </StackPanel>
                 </DockPanel>
