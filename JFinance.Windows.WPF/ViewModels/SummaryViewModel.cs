@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace JFinance.Windows.WPF.ViewModels
 {
@@ -27,6 +28,11 @@ namespace JFinance.Windows.WPF.ViewModels
             this.ComboBoxItems.Add("5 Years");
             this.ComboBoxItems.Add("Lifetime");
             this.durationString = "30 Days";
+
+            this.TransactionComboBoxItems.Add(TransactionType.Credit);
+            this.TransactionComboBoxItems.Add(TransactionType.Debit);
+
+            this.AddCommand = new RelayCommand(this.AddTransaction);
         }
 
         #endregion
@@ -35,11 +41,25 @@ namespace JFinance.Windows.WPF.ViewModels
 
         private ObservableCollection<TransactionModel> transactions;
 
-        private string durationString;
+        private string durationString = "";
+
+        public string addAmountString = "0";
+
+        public string addCategory = "";
+
+        public string addTags = "";
+
+        public string addDescription = "";
+
+        public DateTime addSelectedDate = DateTime.Now;
+
+        public TransactionType addTransactionTime = TransactionType.Credit;
 
         #endregion
 
         #region Properties
+
+        public ICommand AddCommand { get; private set; }
 
         public ObservableCollection<TransactionModel> Transactions
         {
@@ -113,6 +133,83 @@ namespace JFinance.Windows.WPF.ViewModels
         }
 
         public ObservableCollection<string> ComboBoxItems { get; private set; } = new ObservableCollection<string>();
+
+        public ObservableCollection<TransactionType> TransactionComboBoxItems { get; private set; } = new ObservableCollection<TransactionType>();
+
+        public double? AddAmount
+        {
+            get
+            {
+                if (!double.TryParse(this.AddAmountString, out double result))
+                    return null;
+
+                return result;
+            }
+        }
+
+        public string AddAmountString
+        {
+            get => this.addAmountString;
+            set => this.Set(ref this.addAmountString, value);
+        }
+
+        public string AddCategory
+        {
+            get => this.addCategory;
+            set => this.Set(ref this.addCategory, value);
+        }
+
+        public string AddTags
+        {
+            get => this.addTags;
+            set => this.Set(ref this.addTags, value);
+        }
+
+        public string AddDescription
+        {
+            get => this.addDescription;
+            set => this.Set(ref this.addDescription, value);
+        }
+
+        public DateTime AddSelectedDate
+        {
+            get => this.addSelectedDate;
+            set => this.Set(ref this.addSelectedDate, value);
+        }
+
+        public TransactionType AddTransactionType
+        {
+            get => this.addTransactionTime;
+            set => this.Set(ref this.addTransactionTime, value);
+        }
+
+        #endregion
+
+        #region Methods
+
+        public void AddTransaction()
+        {
+            ObservableCollection<string> tags = new ObservableCollection<string>();
+            string[] sTags = this.AddTags.Split('#');
+            tags.AddRange(sTags);
+
+            this.Transactions.Add(new TransactionModel()
+            {
+                Amount = this.AddAmount.Value,
+                Category = this.AddCategory,
+                Description = this.AddDescription,
+                Timestamp = this.AddSelectedDate,
+                TransactionType = this.AddTransactionType,
+                Tags = tags,
+            });
+
+            this.AddAmountString = "";
+            this.AddCategory = "";
+            this.AddDescription = "";
+            this.AddSelectedDate = DateTime.Now;
+            this.AddTransactionType = TransactionType.Credit;
+            this.AddTags = "";
+        }
 
         #endregion
     }

@@ -6,12 +6,16 @@
              xmlns:models="clr-namespace:JFinance.Models"
              xmlns:selectors="clr-namespace:JFinance.Windows.WPF.Selectors"
              xmlns:converters="clr-namespace:JFinance.Windows.WPF.Converters"
+             xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls"
              xmlns:local="clr-namespace:JFinance.Windows.WPF.Views"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <UserControl.Resources>
         <converters:TransactionTypeToBrushConverter x:Key="TransactionTypeToBrushConverter"/>
-        <converters:TransactionTypeDoubleStringConverter x:Key="TransactionTypeDoubleStringConverter"/>
+        <converters:TransactionTypeDoubleToStringConverter x:Key="TransactionTypeDoubleToStringConverter"/>
+        <converters:DateTimeToStringConverter x:Key="DateTimeToStringConverter"/>
+        <converters:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
 
         <DataTemplate DataType="{x:Type models:TransactionModel}" x:Key="TransactionModelTemplate">
             <Grid Margin="5 5 5 5">
@@ -36,7 +40,7 @@
                             <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSizeL}"
                                        Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
                                 <TextBlock.Text>
-                                    <MultiBinding Converter="{StaticResource TransactionTypeDoubleStringConverter}">
+                                    <MultiBinding Converter="{StaticResource TransactionTypeDoubleToStringConverter}">
                                         <Binding Path="Amount"/>
                                         <Binding Path="TransactionType"/>
                                     </MultiBinding>
@@ -60,11 +64,11 @@
 
     <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0">
+        <StackPanel Grid.Column="0" Margin="10 10 10 10">
             <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Transactions"/>
 
             <ListBox Margin="0 5 0 5" BorderThickness="0" ItemsSource="{Binding Transactions}"
@@ -78,7 +82,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0">
+            <StackPanel Grid.Row="0" Margin="10 10 10 10" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Overview"/>
 
                 <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
@@ -101,8 +105,52 @@
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" Margin="10 10 10 10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Add Transactions"/>
 
+                <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Margin="0 0 20 0">
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Amount"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddAmountString, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
+                                 Width="{Binding ActualWidth, ElementName=TransactionTextBox}"/>
+                        
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Category"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddCategory, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
+                                 Width="{Binding ActualWidth, ElementName=TransactionTextBox}"/>
+                        
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Tags"/>
+                        <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
+                                 Width="{Binding ActualWidth, ElementName=TransactionTextBox}"/>
+
+                        <controls:PathButton Content="Add" FlowDirection="LeftToRight" Padding="10 5" 
+                                             FontSize="{StaticResource FontSizeL}" PathData="{StaticResource AddPath}"
+							                 Command="{Binding AddCommand}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Description"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" FontSize="{StaticResource FontSize}"/>
+
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Date"/>
+                        <DatePicker SelectedDate="{Binding AddSelectedDate, Mode=TwoWay, TargetNullValue={x:Static system:DateTime.Now}}">
+                            <DatePicker.Resources>
+                                <Style TargetType="DatePickerTextBox">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <TextBox Text="{Binding Path=SelectedDate, Mode=TwoWay, StringFormat={}{0:dd/MM/yyyy hh:mm:ss},
+                                                                RelativeSource={RelativeSource AncestorType=DatePicker}}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+
+                        <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Transaction Type"/>
+                        <ComboBox ItemsSource="{Binding TransactionComboBoxItems}" SelectedItem="{Binding AddTransactionType, Mode=TwoWay}" x:Name="TransactionTextBox"/>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>

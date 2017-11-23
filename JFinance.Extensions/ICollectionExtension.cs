@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    static class ICollectionExtension
+    public static class ICollectionExtension
     {
         public static void AddRange<T>(this ICollection<T> host, IEnumerable<T> items)
         {

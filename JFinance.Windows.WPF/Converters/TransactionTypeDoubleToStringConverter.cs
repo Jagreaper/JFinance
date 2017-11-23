@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace JFinance.Windows.WPF.Converters
 {
-    class TransactionTypeDoubleStringConverter : IMultiValueConverter
+    class TransactionTypeDoubleToStringConverter : IMultiValueConverter
     {
         #region Methods
 

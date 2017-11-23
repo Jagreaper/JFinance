@@ -89,8 +89,12 @@
     </ApplicationDefinition>
     <Compile Include="Controls\PathButton.cs" />
     <Compile Include="Controls\PathRadioButton.cs" />
+    <Compile Include="Converters\DateTimeToStringConverter.cs" />
+    <Compile Include="Converters\DoubleToBrushValidationConverter.cs" />
+    <Compile Include="Converters\DoubleToStringConverter.cs" />
     <Compile Include="Converters\TransactionTypeToBrushConverter.cs" />
-    <Compile Include="Converters\TransactionTypeDoubleStringConverter.cs" />
+    <Compile Include="Converters\TransactionTypeDoubleToStringConverter.cs" />
+    <Compile Include="Converters\TransactionTypeToStringConverter.cs" />
     <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="Selectors\TransactionsSelectionDataTemplateSelector.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -195,6 +199,7 @@
     <Content Include="Assets\icon.svg" />
     <Content Include="Assets\man-user.svg" />
     <Content Include="Assets\marketing-pie-chart-pieces.svg" />
+    <Content Include="Assets\plus.svg" />
     <Content Include="Assets\settings-work-tool.svg">
       <SubType>Designer</SubType>
     </Content>
