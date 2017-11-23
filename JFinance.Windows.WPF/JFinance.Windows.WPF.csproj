@@ -93,6 +93,7 @@
     <Compile Include="Converters\DoubleToBrushValidationConverter.cs" />
     <Compile Include="Converters\DoubleToStringConverter.cs" />
     <Compile Include="Converters\MultiToBoolValidationConverter.cs" />
+    <Compile Include="Converters\StringToBrushValidationConverter.cs" />
     <Compile Include="Converters\TransactionTypeToBrushConverter.cs" />
     <Compile Include="Converters\TransactionTypeDoubleToStringConverter.cs" />
     <Compile Include="Converters\TransactionTypeToStringConverter.cs" />

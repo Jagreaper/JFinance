@@ -15,8 +15,9 @@
         <converters:TransactionTypeToBrushConverter x:Key="TransactionTypeToBrushConverter"/>
         <converters:TransactionTypeDoubleToStringConverter x:Key="TransactionTypeDoubleToStringConverter"/>
         <converters:DateTimeToStringConverter x:Key="DateTimeToStringConverter"/>
-        <converters:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
         <converters:MultiToBoolValidationConverter x:Key="MultiToBoolValidationConverter"/>
+        <converters:DoubleToBrushValidationConverter x:Key="DoubleToBrushValidationConverter"/>
+        <converters:StringToBrushValidationConverter x:Key="StringToBrushValidationConverter"/>
 
         <DataTemplate DataType="{x:Type models:TransactionModel}" x:Key="TransactionModelTemplate">
             <Grid Margin="5 5 5 5">
@@ -112,13 +113,16 @@
                 <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
                     <StackPanel Orientation="Vertical" Margin="0 0 20 0">
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Amount"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddAmountString, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Width="142"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddAmountString, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
+                                 BorderBrush="{Binding AddAmount, Converter={StaticResource DoubleToBrushValidationConverter}}" Width="142"/>
                         
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Category"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddCategory, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Width="142"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddCategory, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
+                                 BorderBrush="{Binding AddCategory, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
                         
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Tags"/>
-                        <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Width="142"/>
+                        <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
+                                 BorderBrush="{Binding AddTags, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
 
                         <controls:PathButton Content="Add" FlowDirection="LeftToRight" Padding="10 5" Width="142"
                                              FontSize="{StaticResource FontSizeL}" PathData="{StaticResource AddPath}"
@@ -136,23 +140,11 @@
 
                     <StackPanel Orientation="Vertical">
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Description"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Width="142"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
+                                 BorderBrush="{Binding AddDescription, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
 
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Date"/>
-                        <DatePicker SelectedDate="{Binding AddSelectedDate, Mode=TwoWay, TargetNullValue={x:Static system:DateTime.Now}}" Width="142">
-                            <DatePicker.Resources>
-                                <Style TargetType="DatePickerTextBox">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate>
-                                                <TextBox Text="{Binding Path=SelectedDate, Mode=TwoWay, StringFormat={}{0:dd/MM/yyyy hh:mm:ss},
-                                                                RelativeSource={RelativeSource AncestorType=DatePicker}}"/>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </DatePicker.Resources>
-                        </DatePicker>
+                        <DatePicker SelectedDate="{Binding AddSelectedDate, Mode=TwoWay, TargetNullValue={x:Static system:DateTime.Now}}" Width="142"/>
 
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Transaction Type"/>
                         <ComboBox ItemsSource="{Binding TransactionComboBoxItems}" SelectedItem="{Binding AddTransactionType, Mode=TwoWay}" Width="142"/>

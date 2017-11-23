@@ -9,11 +9,11 @@ using System.Windows.Media;
 
 namespace JFinance.Windows.WPF.Converters
 {
-    class DoubleToBrushValidationConverter : IValueConverter
+    class StringToBrushValidationConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((double)value >= 0)
+            if (!string.IsNullOrEmpty((string)value))
                 return Brushes.Green;
             else
                 return Brushes.Red;
