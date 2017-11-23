@@ -76,7 +76,7 @@ namespace JFinance.Windows.WPF.ViewModels
                 if (this.Duration != null)
                     income = income.Where(t => (DateTime.Now - t.Timestamp).TotalDays <= this.Duration.Value);
 
-                return income.Select(t => t.Amount).Sum();
+                return ((double)((int)income.Select(t => t.Amount).Sum() * 100)) / 100;
             }
         }
 
@@ -89,7 +89,7 @@ namespace JFinance.Windows.WPF.ViewModels
                 if (this.Duration != null)
                     spendings = spendings.Where(t => (DateTime.Now - t.Timestamp).TotalDays <= this.Duration.Value);
 
-                return spendings.Select(t => t.Amount).Sum();
+                return ((double)((int)spendings.Select(t => t.Amount).Sum() * 100)) / 100;
             }
         }
 
@@ -108,10 +108,10 @@ namespace JFinance.Windows.WPF.ViewModels
             get => this.durationString;
             set
             {
+                this.Set(ref this.durationString, value);
                 this.RaisePropertyChanged("IncomeString");
                 this.RaisePropertyChanged("SpendingsString");
                 this.RaisePropertyChanged("BalanceString");
-                this.Set(ref this.durationString, value);
             }
         }
 
@@ -136,12 +136,12 @@ namespace JFinance.Windows.WPF.ViewModels
 
         public ObservableCollection<TransactionType> TransactionComboBoxItems { get; private set; } = new ObservableCollection<TransactionType>();
 
-        public double? AddAmount
+        public double AddAmount
         {
             get
             {
                 if (!double.TryParse(this.AddAmountString, out double result))
-                    return null;
+                    return -1;
 
                 return result;
             }
@@ -150,7 +150,11 @@ namespace JFinance.Windows.WPF.ViewModels
         public string AddAmountString
         {
             get => this.addAmountString;
-            set => this.Set(ref this.addAmountString, value);
+            set
+            {
+                this.Set(ref this.addAmountString, value);
+                this.RaisePropertyChanged("AddAmount");
+            }
         }
 
         public string AddCategory
@@ -195,7 +199,7 @@ namespace JFinance.Windows.WPF.ViewModels
 
             this.Transactions.Add(new TransactionModel()
             {
-                Amount = this.AddAmount.Value,
+                Amount = this.AddAmount,
                 Category = this.AddCategory,
                 Description = this.AddDescription,
                 Timestamp = this.AddSelectedDate,
@@ -209,6 +213,10 @@ namespace JFinance.Windows.WPF.ViewModels
             this.AddSelectedDate = DateTime.Now;
             this.AddTransactionType = TransactionType.Credit;
             this.AddTags = "";
+
+            this.RaisePropertyChanged("IncomeString");
+            this.RaisePropertyChanged("SpendingsString");
+            this.RaisePropertyChanged("BalanceString");
         }
 
         #endregion

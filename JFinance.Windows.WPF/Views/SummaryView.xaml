@@ -16,6 +16,7 @@
         <converters:TransactionTypeDoubleToStringConverter x:Key="TransactionTypeDoubleToStringConverter"/>
         <converters:DateTimeToStringConverter x:Key="DateTimeToStringConverter"/>
         <converters:DoubleToStringConverter x:Key="DoubleToStringConverter"/>
+        <converters:MultiToBoolValidationConverter x:Key="MultiToBoolValidationConverter"/>
 
         <DataTemplate DataType="{x:Type models:TransactionModel}" x:Key="TransactionModelTemplate">
             <Grid Margin="5 5 5 5">
@@ -111,28 +112,34 @@
                 <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
                     <StackPanel Orientation="Vertical" Margin="0 0 20 0">
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Amount"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddAmountString, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
-                                 Width="{Binding ActualWidth, ElementName=TransactionTextBox}"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddAmountString, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Width="142"/>
                         
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Category"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddCategory, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
-                                 Width="{Binding ActualWidth, ElementName=TransactionTextBox}"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddCategory, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Width="142"/>
                         
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Tags"/>
-                        <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
-                                 Width="{Binding ActualWidth, ElementName=TransactionTextBox}"/>
+                        <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Width="142"/>
 
-                        <controls:PathButton Content="Add" FlowDirection="LeftToRight" Padding="10 5" 
+                        <controls:PathButton Content="Add" FlowDirection="LeftToRight" Padding="10 5" Width="142"
                                              FontSize="{StaticResource FontSizeL}" PathData="{StaticResource AddPath}"
-							                 Command="{Binding AddCommand}"/>
+							                 Command="{Binding AddCommand}">
+                            <controls:PathButton.IsEnabled>
+                                <MultiBinding Converter="{StaticResource MultiToBoolValidationConverter}">
+                                    <Binding Path="AddAmount" TargetNullValue=""/>
+                                    <Binding Path="AddCategory"/>
+                                    <Binding Path="AddDescription"/>
+                                    <Binding Path="AddTags"/>
+                                </MultiBinding>
+                            </controls:PathButton.IsEnabled>
+                        </controls:PathButton>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical">
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Description"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" FontSize="{StaticResource FontSize}"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Width="142"/>
 
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Date"/>
-                        <DatePicker SelectedDate="{Binding AddSelectedDate, Mode=TwoWay, TargetNullValue={x:Static system:DateTime.Now}}">
+                        <DatePicker SelectedDate="{Binding AddSelectedDate, Mode=TwoWay, TargetNullValue={x:Static system:DateTime.Now}}" Width="142">
                             <DatePicker.Resources>
                                 <Style TargetType="DatePickerTextBox">
                                     <Setter Property="Template">
@@ -148,7 +155,7 @@
                         </DatePicker>
 
                         <TextBlock Margin="0 0 0 0" FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Transaction Type"/>
-                        <ComboBox ItemsSource="{Binding TransactionComboBoxItems}" SelectedItem="{Binding AddTransactionType, Mode=TwoWay}" x:Name="TransactionTextBox"/>
+                        <ComboBox ItemsSource="{Binding TransactionComboBoxItems}" SelectedItem="{Binding AddTransactionType, Mode=TwoWay}" Width="142"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
