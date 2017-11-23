@@ -76,7 +76,7 @@ namespace JFinance.Windows.WPF.ViewModels
                 if (this.Duration != null)
                     income = income.Where(t => (DateTime.Now - t.Timestamp).TotalDays <= this.Duration.Value);
 
-                return ((double)((int)income.Select(t => t.Amount).Sum() * 100)) / 100;
+                return ((double)((int)(income.Select(t => t.Amount).Sum() * 100))) / 100;
             }
         }
 
@@ -89,7 +89,7 @@ namespace JFinance.Windows.WPF.ViewModels
                 if (this.Duration != null)
                     spendings = spendings.Where(t => (DateTime.Now - t.Timestamp).TotalDays <= this.Duration.Value);
 
-                return ((double)((int)spendings.Select(t => t.Amount).Sum() * 100)) / 100;
+                return ((double)((int)(spendings.Select(t => t.Amount).Sum() * 100))) / 100;
             }
         }
 
