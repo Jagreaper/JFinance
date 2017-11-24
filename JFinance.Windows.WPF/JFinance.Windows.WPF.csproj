@@ -87,17 +87,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Selectors\IColorSelector.cs" />
+    <Compile Include="Controls\Legend.xaml.cs">
+      <DependentUpon>Legend.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PathButton.cs" />
     <Compile Include="Controls\PathRadioButton.cs" />
+    <Compile Include="Controls\PieChartLayout.xaml.cs">
+      <DependentUpon>PieChartLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PiePiece.cs" />
+    <Compile Include="Controls\PiePlotter.xaml.cs">
+      <DependentUpon>PiePlotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ColourConverter.cs" />
     <Compile Include="Converters\DateTimeToStringConverter.cs" />
     <Compile Include="Converters\DoubleToBrushValidationConverter.cs" />
     <Compile Include="Converters\DoubleToStringConverter.cs" />
+    <Compile Include="Converters\FormattingConverter.cs" />
+    <Compile Include="Converters\LegendConverter.cs" />
     <Compile Include="Converters\MultiToBoolValidationConverter.cs" />
     <Compile Include="Converters\StringToBrushValidationConverter.cs" />
     <Compile Include="Converters\TransactionTypeToBrushConverter.cs" />
     <Compile Include="Converters\TransactionTypeDoubleToStringConverter.cs" />
     <Compile Include="Converters\TransactionTypeToStringConverter.cs" />
+    <Compile Include="Helpers\FinderMatchType.cs" />
+    <Compile Include="Helpers\IFinderMatchVisualHelper.cs" />
+    <Compile Include="Helpers\WpfHelper.cs" />
     <Compile Include="Models\TransactionModel.cs" />
+    <Compile Include="Selectors\IndexedColourSelector.cs" />
     <Compile Include="Selectors\TransactionsSelectionDataTemplateSelector.cs" />
     <Compile Include="Styles\Theme.cs" />
     <Compile Include="Styles\Themes.cs" />
@@ -106,6 +124,18 @@
     <Compile Include="Views\SummaryView.xaml.cs">
       <DependentUpon>SummaryView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Legend.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PieChartLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PiePlotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

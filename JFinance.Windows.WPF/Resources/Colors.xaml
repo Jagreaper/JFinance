@@ -4,7 +4,7 @@
     <SolidColorBrush x:Key="AccentMainBrush">#FF3399FF</SolidColorBrush>
     <SolidColorBrush x:Key="AccentDarkBrush">#FF007ACC</SolidColorBrush>
     <SolidColorBrush x:Key="SelectedBrush">#FFFFFFFF</SolidColorBrush>
-    <SolidColorBrush x:Key="ValidationBrush">#FFF3333</SolidColorBrush>
+    <SolidColorBrush x:Key="ValidationBrush">#FFF33333</SolidColorBrush>
 
     <SolidColorBrush x:Key="AccentBrush">#FF007ACC</SolidColorBrush>
     <SolidColorBrush x:Key="MarkerBrush">#FF1E1E1E</SolidColorBrush>
@@ -18,5 +18,5 @@
     <SolidColorBrush x:Key="HeaderBrush">#FF007ACC</SolidColorBrush>
     <SolidColorBrush x:Key="ComplementaryBrush">#FFDBDDE6</SolidColorBrush>
 
-    <SolidColorBrush x:Key="BackgroundBrush">#FFFFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundBrush">#FFFFFFFF</SolidColorBrush>
 </ResourceDictionary>

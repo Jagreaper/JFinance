@@ -13,10 +13,7 @@ namespace JFinance.Windows.WPF.Controls
     {
         #region Construcor
 
-        static PathButton()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(PathButton), new FrameworkPropertyMetadata(typeof(PathButton)));
-        }
+        static PathButton() => DefaultStyleKeyProperty.OverrideMetadata(typeof(PathButton), new FrameworkPropertyMetadata(typeof(PathButton)));
 
         #endregion
 

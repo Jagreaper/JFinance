@@ -116,9 +116,8 @@
                         <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}"
                                  BorderBrush="{Binding AddTags, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
 
-                        <controls:PathButton Content="Add" FlowDirection="LeftToRight" Padding="10 5" Width="142"
-                                             FontSize="{StaticResource FontSizeL}" PathData="{StaticResource AddPath}"
-							                 Command="{Binding AddCommand}">
+                        <controls:PathButton Content="Add" FlowDirection="LeftToRight" Padding="10 5" Width="142" BorderThickness="0 0 0 0"
+                                             FontSize="{StaticResource FontSizeL}" PathData="{StaticResource AddPath}" Command="{Binding AddCommand}">
                             <controls:PathButton.IsEnabled>
                                 <MultiBinding Converter="{StaticResource MultiToBoolValidationConverter}">
                                     <Binding Path="AddAmount"/>

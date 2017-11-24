@@ -14,10 +14,7 @@ namespace JFinance.Windows.WPF.Controls
     {
         #region Constructor
 
-        static PathRadioButton()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(PathRadioButton), new FrameworkPropertyMetadata(typeof(PathRadioButton)));
-        }
+        static PathRadioButton() => DefaultStyleKeyProperty.OverrideMetadata(typeof(PathRadioButton), new FrameworkPropertyMetadata(typeof(PathRadioButton)));
 
         #endregion
 
@@ -95,10 +92,7 @@ namespace JFinance.Windows.WPF.Controls
                 VisualStateManager.GoToState(this, "Unfocused", true);
         }
 
-        protected internal virtual void OnActivate()
-        {
-            this.RaiseEvent(new RoutedEventArgs(ActivateEvent, this));
-        }
+        protected internal virtual void OnActivate() => this.RaiseEvent(new RoutedEventArgs(ActivateEvent, this));
 
         protected override void OnToggle()
         {
