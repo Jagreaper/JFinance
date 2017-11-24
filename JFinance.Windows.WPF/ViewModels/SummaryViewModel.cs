@@ -194,7 +194,7 @@ namespace JFinance.Windows.WPF.ViewModels
         public void AddTransaction()
         {
             ObservableCollection<string> tags = new ObservableCollection<string>();
-            string[] sTags = this.AddTags.Split('#');
+            IEnumerable<string> sTags = this.AddTags.Split('#').Where(t => !string.IsNullOrEmpty(t));
             tags.AddRange(sTags);
 
             this.Transactions.Add(new TransactionModel()

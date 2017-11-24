@@ -1,4 +1,5 @@
 ﻿using JFinance.Mvvm;
+using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
 
@@ -15,16 +16,22 @@ namespace JFinance.Models
     {
         #region Fields
 
+        [JsonIgnore]
         public double amount;
 
+        [JsonIgnore]
         private string category = "None";
 
+        [JsonIgnore]
         public string description = "None";
 
+        [JsonIgnore]
         private ObservableCollection<string> tags = new ObservableCollection<string>();
 
+        [JsonIgnore]
         public DateTime timestamp = DateTime.Now;
 
+        [JsonIgnore]
         public TransactionType transactionType = TransactionType.None;
 
         #endregion
