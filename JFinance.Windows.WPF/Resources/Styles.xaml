@@ -8,9 +8,9 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource MarkerBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BasicBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MarkerBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontLight}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="Padding" Value="4,3"/>
@@ -35,7 +35,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pressed"/>
                                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="(TextBlock.Foreground)">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource SelectedBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SelectedBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -77,18 +77,18 @@
                                 Background="{TemplateBinding Background}"/>
                         <Border x:Name="pressed"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{StaticResource AccentDarkBrush}"
-                                BorderBrush="{StaticResource AccentDarkBrush}"
+                                Background="{DynamicResource AccentDarkBrush}"
+                                BorderBrush="{DynamicResource AccentDarkBrush}"
                                 Opacity="0"/>
                         <Border x:Name="hover"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{StaticResource MouseOverBrush}"
-                                BorderBrush="{StaticResource AccentBrush}"
+                                Background="{DynamicResource MouseOverBrush}"
+                                BorderBrush="{DynamicResource AccentBrush}"
                                 Opacity="0"/>
                         <Border x:Name="disabled"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{StaticResource AlternativeBrush}"
-                                BorderBrush="{StaticResource ComplementaryBrush}"
+                                Background="{DynamicResource AlternativeBrush}"
+                                BorderBrush="{DynamicResource ComplementaryBrush}"
                                 Opacity="0"/>
                         <ContentPresenter x:Name="Content"
                                 TextBlock.Foreground="{TemplateBinding Foreground}"
@@ -106,7 +106,7 @@
                             <Border x:Name="FocusVisual"
                                     Background="Transparent"
                                     Visibility="Collapsed"
-                                    BorderBrush="{StaticResource AccentMainBrush}"
+                                    BorderBrush="{DynamicResource AccentMainBrush}"
                                     BorderThickness="1"/>
                         </Border>
                     </Grid>
@@ -116,7 +116,7 @@
     </Style>
     
     <Style x:Key="PathButtonPathStyle" TargetType="Path">
-        <Setter Property="Fill" Value="{StaticResource MarkerBrush}"/>
+        <Setter Property="Fill" Value="{DynamicResource MarkerBrush}"/>
         <Setter Property="Stretch" Value="Uniform"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -127,9 +127,9 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="FontFamily" Value="{StaticResource FontLight}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
-        <Setter Property="Foreground" Value="{StaticResource MarkerBrush}"/>
-        <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MarkerBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BasicBrush}"/>
         <Setter Property="Padding" Value="3"/>
         <Setter Property="PathStyle" Value="{StaticResource PathButtonPathStyle}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -145,7 +145,7 @@
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MarkerBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource MarkerBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OuterMouseOverBorder"/>
                                     </Storyboard>
@@ -160,10 +160,10 @@
                                             </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="(TextBlock.Foreground)">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource SelectedBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SelectedBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource SelectedBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SelectedBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -177,7 +177,7 @@
                                             </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BasicBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource BasicBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="Opacity" To="0.2"/>
                                     </Storyboard>
@@ -230,18 +230,18 @@
                         <Border x:Name="OuterMouseOverBorder"
                                 Opacity="0"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{StaticResource MouseOverBrush}"
-                                BorderBrush="{StaticResource AccentBrush}"/>
+                                Background="{DynamicResource MouseOverBrush}"
+                                BorderBrush="{DynamicResource AccentBrush}"/>
                         <Border x:Name="OuterPressedBorder"
                                 Visibility="Collapsed"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{StaticResource AccentDarkBrush}"
-                                Background="{StaticResource AccentDarkBrush}"/>
+                                BorderBrush="{DynamicResource AccentDarkBrush}"
+                                Background="{DynamicResource AccentDarkBrush}"/>
                         <Border x:Name="DisabledVisual"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Visibility="Collapsed"
-                                BorderBrush="{StaticResource ComplementaryBrush}"
-                                Background="{StaticResource AlternativeBrush}"/>
+                                BorderBrush="{DynamicResource ComplementaryBrush}"
+                                Background="{DynamicResource AlternativeBrush}"/>
                         <Grid Margin="{TemplateBinding Padding}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -269,7 +269,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Visibility="Collapsed"
                                 Background="{x:Null}"
-                                BorderBrush="{StaticResource AccentMainBrush}"/>
+                                BorderBrush="{DynamicResource AccentMainBrush}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -280,9 +280,9 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="FontFamily" Value="{StaticResource FontLight}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
-        <Setter Property="Foreground" Value="{StaticResource MarkerBrush}"/>
-        <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MarkerBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BasicBrush}"/>
         <Setter Property="Padding" Value="3"/>
         <Setter Property="PathStyle" Value="{StaticResource PathButtonPathStyle}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -298,7 +298,7 @@
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MarkerBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource MarkerBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OuterMouseOverBorder"/>
                                     </Storyboard>
@@ -313,10 +313,10 @@
                                             </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="(TextBlock.Foreground)">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource SelectedBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SelectedBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource SelectedBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SelectedBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -330,7 +330,7 @@
                                             </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BasicBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource BasicBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="Opacity" To="0.2"/>
                                     </Storyboard>
@@ -348,10 +348,10 @@
                                             </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="(TextBlock.Foreground)">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource SelectedBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SelectedBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource SelectedBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SelectedBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -388,18 +388,18 @@
                         <Border x:Name="OuterMouseOverBorder"
                                 Opacity="0"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{StaticResource MouseOverBrush}"
-                                BorderBrush="{StaticResource AccentBrush}"/>
+                                Background="{DynamicResource MouseOverBrush}"
+                                BorderBrush="{DynamicResource AccentBrush}"/>
                         <Border x:Name="OuterPressedBorder"
                                 Visibility="Collapsed"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{StaticResource AccentDarkBrush}"
-                                Background="{StaticResource AccentDarkBrush}"/>
+                                BorderBrush="{DynamicResource AccentDarkBrush}"
+                                Background="{DynamicResource AccentDarkBrush}"/>
                         <Border x:Name="DisabledVisual"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Visibility="Collapsed"
-                                BorderBrush="{StaticResource ComplementaryBrush}"
-                                Background="{StaticResource AlternativeBrush}"/>
+                                BorderBrush="{DynamicResource ComplementaryBrush}"
+                                Background="{DynamicResource AlternativeBrush}"/>
                         <Grid Margin="{TemplateBinding Padding}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -427,7 +427,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Visibility="Collapsed"
                                 Background="{x:Null}"
-                                BorderBrush="{StaticResource AccentMainBrush}"/>
+                                BorderBrush="{DynamicResource AccentMainBrush}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -435,9 +435,9 @@
     </Style>
 
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
-        <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}"/>
-        <Setter Property="Background" Value="{StaticResource MainBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource MarkerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BasicBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource MainBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MarkerBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontLight}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="MinHeight" Value="22"/>
@@ -465,10 +465,10 @@
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComplementaryBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource ComplementaryBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource AlternativeBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource AlternativeBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation Duration="0" Storyboard.TargetName="PART_ContentHost" Storyboard.TargetProperty="Opacity" To="0.2"/>
                                     </Storyboard>
@@ -476,10 +476,10 @@
                                 <VisualState x:Name="ReadOnly">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BasicBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource BasicBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource AlternativeBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource AlternativeBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="FocusedVisual" Storyboard.TargetProperty="BorderBrush">
                                             <DiscreteObjectKeyFrame KeyTime="0">
@@ -520,13 +520,13 @@
                         <Border x:Name="Hover"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="Transparent"
-                                BorderBrush="{StaticResource AccentBrush}"
+                                BorderBrush="{DynamicResource AccentBrush}"
                                 Opacity="0"
                                 IsHitTestVisible="False"/>
                         <Border x:Name="FocusedVisual"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="Transparent"
-                                BorderBrush="{StaticResource AccentMainBrush}"
+                                BorderBrush="{DynamicResource AccentMainBrush}"
                                 Visibility="Collapsed"
                                 IsHitTestVisible="False"/>
                     </Grid>
@@ -536,9 +536,9 @@
     </Style>
     
     <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
-        <Setter Property="BorderBrush" Value="{StaticResource BasicBrush}"/>
-        <Setter Property="Background" Value="{StaticResource MainBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource MarkerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BasicBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource MainBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MarkerBrush}"/>
         <Setter Property="FontFamily" Value="{StaticResource FontLight}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
         <Setter Property="MinHeight" Value="22"/>
@@ -569,10 +569,10 @@
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ComplementaryBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource ComplementaryBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource AlternativeBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource AlternativeBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation Duration="0" Storyboard.TargetName="PART_ContentHost" Storyboard.TargetProperty="Opacity" To="0.2"/>
                                     </Storyboard>
@@ -591,12 +591,12 @@
                         </Border>
                         <Border x:Name="Hover"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{StaticResource AccentBrush}"
+                                BorderBrush="{DynamicResource AccentBrush}"
                                 Opacity="0"
                                 IsHitTestVisible="False"/>
                         <Border x:Name="FocusedVisual"
                                 Opacity="0"
-                                BorderBrush="{StaticResource AccentMainBrush}"
+                                BorderBrush="{DynamicResource AccentMainBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 IsHitTestVisible="False"/>
                     </Grid>

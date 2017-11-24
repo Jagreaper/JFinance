@@ -99,6 +99,8 @@
     <Compile Include="Converters\TransactionTypeToStringConverter.cs" />
     <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="Selectors\TransactionsSelectionDataTemplateSelector.cs" />
+    <Compile Include="Styles\Theme.cs" />
+    <Compile Include="Styles\Themes.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SummaryViewModel.cs" />
     <Compile Include="Views\SummaryView.xaml.cs">
