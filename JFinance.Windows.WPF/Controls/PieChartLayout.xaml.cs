@@ -30,12 +30,20 @@ namespace JFinance.Windows.WPF.Controls
 
         public static readonly DependencyProperty PlottedPropertyProperty = DependencyProperty.RegisterAttached("PlottedProperty", typeof(String), typeof(PieChartLayout), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.Inherits));
 
+        public static readonly DependencyProperty CategoryNameProperty = DependencyProperty.RegisterAttached("CategoryName", typeof(String), typeof(PieChartLayout), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.Inherits));
+
         public static readonly DependencyProperty ColorSelectorProperty = DependencyProperty.RegisterAttached("ColorSelectorProperty", typeof(IColorSelector), typeof(PieChartLayout), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Inherits));
 
         public String PlottedProperty
         {
             get => PieChartLayout.GetPlottedProperty(this);
             set => PieChartLayout.SetPlottedProperty(this, value);
+        }
+
+        public String CategoryName
+        {
+            get => PieChartLayout.GetCategoryName(this);
+            set => PieChartLayout.SetCategoryName(this, value);
         }
 
         public IColorSelector ColorSelector
@@ -51,6 +59,10 @@ namespace JFinance.Windows.WPF.Controls
         public static void SetPlottedProperty(UIElement element, String value) => element.SetValue(PieChartLayout.PlottedPropertyProperty, value);
 
         public static String GetPlottedProperty(UIElement element) => (String)element.GetValue(PieChartLayout.PlottedPropertyProperty);
+
+        public static void SetCategoryName(UIElement element, String value) => element.SetValue(PieChartLayout.CategoryNameProperty, value);
+
+        public static String GetCategoryName(UIElement element) => (String)element.GetValue(PieChartLayout.CategoryNameProperty);
 
         public static void SetColorSelector(UIElement element, IColorSelector value) => element.SetValue(PieChartLayout.ColorSelectorProperty, value);
 

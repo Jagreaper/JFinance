@@ -2,10 +2,12 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls"
+    xmlns:converters="clr-namespace:JFinance.Windows.WPF.Converters"
     Height="300" Width="300">
     <UserControl.Resources>
-        <controls:LegendConverter x:Key="legendConverter" />
-        <controls:ColourConverter x:Key="colourConverter" />
+        <converters:CategoryNameLegendConverter x:Key="CategoryNameLegendConverter" />
+        <converters:LegendConverter x:Key="LegendConverter" />
+        <converters:ColourConverter x:Key="ColourConverter" />
         
         <Style TargetType="ListBoxItem">
             <!-- override the default template to remove the default styling on the IsSelected property -->
@@ -13,14 +15,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBoxItem}">
                         <Border x:Name="border" BorderBrush="Transparent" BorderThickness="1">
-                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="true">
                                 <Setter Property="BorderBrush" TargetName="border">
                                     <Setter.Value>
-                                    <SolidColorBrush Color="Black"/>
-                                        </Setter.Value>
+                                        <SolidColorBrush Color="Black"/>
+                                    </Setter.Value>
                                 </Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
@@ -33,7 +36,7 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <TextBlock TextAlignment="Center" Grid.Column="1" FontSize="20" FontWeight="Bold"
-                   Text="{Binding Path=(controls:PieChartLayout.PlottedProperty), RelativeSource={RelativeSource AncestorType={x:Type controls:Legend}}}"/>
+                       Text="{Binding Path=(controls:PieChartLayout.PlottedProperty), RelativeSource={RelativeSource AncestorType={x:Type controls:Legend}}}"/>
         
             <ListBox Height="170" HorizontalContentAlignment="Stretch"  BorderThickness="0" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" Margin="0" Name="legend">
                 <ListBox.ItemTemplate>
@@ -53,14 +56,15 @@
 
                             <!-- the colour key -->
                             <Rectangle Grid.Column="0" Width="13" Height="13" Tag="{Binding}"
-                                       Fill="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource colourConverter}}"/>
+                                       Fill="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource ColourConverter}}"/>
                              
                             <!-- the name of this item -->
-                            <TextBlock Grid.Column="1" Margin="3" Text="{Binding Path=Class}"/>
+                            <TextBlock Grid.Column="1" Margin="3" Tag="{Binding}"
+                                       Text="{Binding RelativeSource={RelativeSource self}, Converter={StaticResource CategoryNameLegendConverter}}"/>
 
                             <!-- the value of the item's property which this pie chart represents -->
                             <TextBlock Grid.Column="2" Margin="3" Tag="{Binding}"
-                                   Text="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource legendConverter}}"/>
+                                       Text="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource LegendConverter}}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

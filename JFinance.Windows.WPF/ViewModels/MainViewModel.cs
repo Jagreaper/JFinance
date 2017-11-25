@@ -47,6 +47,9 @@ namespace JFinance.Windows.WPF.ViewModels
                 case "NavigateSummary":
                     this.ContentControl = new SummaryView();
                     break;
+                case "NavigateGraph":
+                    this.ContentControl = new GraphView();
+                    break;
                 default:
                     this.ContentControl = null;
                     break;

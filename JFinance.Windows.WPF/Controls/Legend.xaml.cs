@@ -43,6 +43,12 @@ namespace JFinance.Windows.WPF.Controls
             set => PieChartLayout.SetPlottedProperty(this, value);
         }
 
+        public String CategoryName
+        {
+            get => PieChartLayout.GetCategoryName(this);
+            set => PieChartLayout.SetCategoryName(this, value);
+        }
+
         public IColorSelector ColorSelector
         {
             get => PieChartLayout.GetColorSelector(this);
@@ -50,8 +56,12 @@ namespace JFinance.Windows.WPF.Controls
         }
 
         #endregion
-        
+
         #region Methods
+
+        private double GetPlottedPropertyValue(object item) => (double)TypeDescriptor.GetProperties(item)[this.PlottedProperty].GetValue(item);
+
+        private double GetCategoryNameValue(object item) => (double)TypeDescriptor.GetProperties(item)[this.PlottedProperty].GetValue(item);
 
         private void DataContextChangedHandler(object sender, DependencyPropertyChangedEventArgs e)
         {

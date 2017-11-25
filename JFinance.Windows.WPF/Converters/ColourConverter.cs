@@ -9,8 +9,9 @@ using System.Windows.Media;
 using System.Windows;
 using System.ComponentModel;
 using JFinance.Windows.WPF.Helpers;
+using JFinance.Windows.WPF.Controls;
 
-namespace JFinance.Windows.WPF.Controls
+namespace JFinance.Windows.WPF.Converters
 {
     [ValueConversion(typeof(object), typeof(Brush))]
     public class ColourConverter : IValueConverter

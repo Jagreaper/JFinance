@@ -29,8 +29,8 @@ namespace JFinance.Windows.WPF.Controls
         
         public PiePlotter()
         {
-            DependencyPropertyDescriptor dpd = DependencyPropertyDescriptor.FromProperty(PieChartLayout.PlottedPropertyProperty, typeof(PiePlotter));
-            dpd.AddValueChanged(this, PlottedPropertyChanged);
+            DependencyPropertyDescriptor property = DependencyPropertyDescriptor.FromProperty(PieChartLayout.PlottedPropertyProperty, typeof(PiePlotter));
+            property.AddValueChanged(this, PlottedPropertyChanged);
 
             this.InitializeComponent();
             this.DataContextChanged += new DependencyPropertyChangedEventHandler(DataContextChangedHandler);
@@ -46,6 +46,12 @@ namespace JFinance.Windows.WPF.Controls
         {
             get => PieChartLayout.GetPlottedProperty(this);
             set => PieChartLayout.SetPlottedProperty(this, value);
+        }
+
+        public String CategoryName
+        {
+            get => PieChartLayout.GetCategoryName(this);
+            set => PieChartLayout.SetCategoryName(this, value);
         }
 
         public IColorSelector ColorSelector
@@ -68,7 +74,7 @@ namespace JFinance.Windows.WPF.Controls
 
         #endregion
 
-        #region Events
+        #region Methods
 
         private void DataContextChangedHandler(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -133,8 +139,6 @@ namespace JFinance.Windows.WPF.Controls
 
                 piece.BeginAnimation(PiePiece.PushOutProperty, a);
             }
-
-            
         }
 
         private void BoundCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -160,15 +164,9 @@ namespace JFinance.Windows.WPF.Controls
                 this.ConstructPiePieces();
         }
 
-        #endregion
+        private double GetPlottedPropertyValue(object item) => (double)TypeDescriptor.GetProperties(item)[this.PlottedProperty].GetValue(item);
 
-        private double GetPlottedPropertyValue(object item)
-        {
-            PropertyDescriptorCollection filterPropDesc = TypeDescriptor.GetProperties(item);
-            object itemValue = filterPropDesc[this.PlottedProperty].GetValue(item);
-            
-            return (double)itemValue;
-        }
+        private double GetCategoryNameValue(object item) => (double)TypeDescriptor.GetProperties(item)[this.PlottedProperty].GetValue(item);
 
         private void ConstructPiePieces()
         {
@@ -177,16 +175,16 @@ namespace JFinance.Windows.WPF.Controls
                 return;
 
             double halfWidth = this.Width / 2;
-            double innerRadius = halfWidth * HoleSize;            
-            
+            double innerRadius = halfWidth * HoleSize;
+
             double total = 0;
             foreach (object item in myCollectionView)
                 total += this.GetPlottedPropertyValue(item);
-            
-            canvas.Children.Clear();
+
+            this.canvas.Children.Clear();
             this.PiePieces.Clear();
-                        
-            double accumulativeAngle=0;
+
+            double accumulativeAngle = 0;
             foreach (object item in myCollectionView)
             {
                 bool selectedItem = item == myCollectionView.CurrentItem;
@@ -211,12 +209,12 @@ namespace JFinance.Windows.WPF.Controls
                 piece.MouseUp += new MouseButtonEventHandler(this.PiePieceMouseUp);
 
                 this.PiePieces.Add(piece);
-                canvas.Children.Insert(0, piece);
+                this.canvas.Children.Insert(0, piece);
 
                 accumulativeAngle += wedgeAngle;
             }
         }
-        
+
         private void PiePieceToolTipOpening(object sender, ToolTipEventArgs e)
         {
             PiePiece piece = (PiePiece)sender;
@@ -224,14 +222,15 @@ namespace JFinance.Windows.WPF.Controls
             CollectionView collectionView = (CollectionView)CollectionViewSource.GetDefaultView(this.DataContext);
             if (collectionView == null)
                 return;
-            
+
             int index = (int)piece.Tag;
             if (piece.ToolTip != null)
             {
                 ToolTip tip = (ToolTip)piece.ToolTip;
                 tip.DataContext = collectionView.GetItemAt(index);
-            }         
+            }
         }
 
+        #endregion
     }
 }
