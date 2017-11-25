@@ -62,7 +62,11 @@ namespace JFinance.Windows.WPF.ViewModels
 
             IEnumerable<string> categories = this.Transactions.Select(t => t.Category).Distinct();
             foreach (string category in categories)
-                this.CategorizedTransactions.Add(new PieElement(category, this.Transactions.Where(t => t.Category == category).Select(t => t.Amount).Sum()));
+            {
+                double sum = this.Transactions.Where(t => t.Category == category).Where(t => t.TransactionType == TransactionType.Debit).Select(t => t.Amount).Sum();
+                if (sum > 0)
+                    this.CategorizedTransactions.Add(new PieElement(category, sum));
+            }
         }
 
         #endregion
