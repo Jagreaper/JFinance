@@ -21,7 +21,7 @@ namespace JFinance.Windows.WPF.Controls
     public partial class PieChartLayout : UserControl
     {
         #region Constructor
-        
+
         public PieChartLayout() => this.InitializeComponent();
 
         #endregion

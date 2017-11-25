@@ -34,6 +34,9 @@ namespace JFinance.Windows.WPF.Controls
 
             this.InitializeComponent();
             this.DataContextChanged += new DependencyPropertyChangedEventHandler(DataContextChangedHandler);
+
+            this.Loaded += (object sender, RoutedEventArgs e) => this.ConstructPiePieces();
+            this.SizeChanged += (object sender, SizeChangedEventArgs e) => this.ConstructPiePieces();
         }
 
         #endregion
@@ -174,8 +177,8 @@ namespace JFinance.Windows.WPF.Controls
             if (myCollectionView == null)
                 return;
 
-            double halfWidth = this.Width / 2;
-            double innerRadius = halfWidth * HoleSize;
+            double halfWidth = (this.ActualWidth < this.ActualHeight ? this.ActualWidth : this.ActualHeight) / 2;
+            double innerRadius = halfWidth * this.HoleSize;
 
             double total = 0;
             foreach (object item in myCollectionView)

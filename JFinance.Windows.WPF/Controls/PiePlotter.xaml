@@ -12,7 +12,7 @@
         </Style>
 
         <Style TargetType="{x:Type ToolTip}">
-            <Setter Property="Opacity" Value=".95" />
+            <Setter Property="Opacity" Value="0.95"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <!-- modify the tooltip control template to add a drop shadow-->
@@ -23,7 +23,7 @@
                                     <DropShadowBitmapEffect ShadowDepth="3"/>
                                 </Rectangle.BitmapEffect>
                             </Rectangle>
-                            <ContentPresenter Margin="5"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter Margin="5 5 5 5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -33,21 +33,15 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal"
                                     DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType={x:Type ToolTip}}}">
-                            <TextBlock FontSize="30" FontWeight="Bold" Margin="0,0,5,0"                        
-                                        DataContext="{Binding Path=PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ToolTip}}}"
-                                        Text="{Binding Path=Percentage, Converter={StaticResource FormattingConverter}, ConverterParameter='\{0:0%\}'}"/>
+                            <TextBlock FontSize="30" FontWeight="Bold" Margin="0 0 5 0"                        
+                                       DataContext="{Binding Path=PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ToolTip}}}"
+                                       Text="{Binding Path=Percentage, Converter={StaticResource FormattingConverter}, ConverterParameter='\{0:0%\}'}"/>
 
                             <StackPanel Orientation="Vertical">
-                                <TextBlock FontWeight="Bold"  Text="{Binding Path=Class}"/>
+                                <TextBlock FontWeight="Bold" Text="{Binding Path=Class}"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Fund"/>
-                                    <TextBlock Text=": "/>
-                                    <TextBlock Text="{Binding Path=Fund}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Benchmark"/>
-                                    <TextBlock Text=": "/>
-                                    <TextBlock Text="{Binding Path=Benchmark}"/>
+                                    <TextBlock Text="Amount: "/>
+                                    <TextBlock Text="{Binding Path=Amount}"/>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
@@ -57,7 +51,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Canvas Name="canvas" VerticalAlignment="Top" />
+        <Canvas Name="canvas"/>
     </Grid>
 </UserControl>
 

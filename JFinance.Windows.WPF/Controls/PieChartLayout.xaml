@@ -2,11 +2,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls">
-    <Grid>
-        <StackPanel Orientation="Horizontal">
-            <controls:PiePlotter Margin="10" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" HoleSize="0.3"/>
+    <Grid x:Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-            <controls:Legend Margin="10" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" />
-        </StackPanel>
+        <controls:Legend Margin="10 10 10 10"/>
+        <controls:PiePlotter Margin="0 0 10 0" Grid.Column="1" HoleSize="0.2"/>
     </Grid>
 </UserControl>
