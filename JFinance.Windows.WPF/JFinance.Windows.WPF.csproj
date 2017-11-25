@@ -87,6 +87,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\CategoryNamePiePlotterConverter.cs" />
+    <Compile Include="Converters\AmountPiePlotterConverter.cs" />
     <Compile Include="Converters\CategoryNameLegendConverter.cs" />
     <Compile Include="Selectors\IColorSelector.cs" />
     <Compile Include="Controls\Legend.xaml.cs">

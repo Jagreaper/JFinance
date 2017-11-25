@@ -5,6 +5,8 @@
     xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls">
     <UserControl.Resources>
         <converters:FormattingConverter x:Key="FormattingConverter"/>
+        <converters:AmountPiePlotterConverter x:Key="AmountPiePlotterConverter"/>
+        <converters:CategoryNamePiePlotterConverter x:Key="CategoryNamePiePlotterConverter"/>
 
         <Style TargetType="{x:Type controls:PiePiece}">
             <Setter Property="Stroke" Value="White"/>
@@ -33,15 +35,30 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal"
                                     DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType={x:Type ToolTip}}}">
-                            <TextBlock FontSize="30" FontWeight="Bold" Margin="0 0 5 0"                        
+                            <TextBlock FontSize="30" FontWeight="Bold" Margin="0 0 5 0" VerticalAlignment="Center"                      
                                        DataContext="{Binding Path=PlacementTarget, RelativeSource={RelativeSource AncestorType={x:Type ToolTip}}}"
                                        Text="{Binding Path=Percentage, Converter={StaticResource FormattingConverter}, ConverterParameter='\{0:0%\}'}"/>
 
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock FontWeight="Bold" Text="{Binding Path=Class}"/>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <TextBlock FontWeight="Bold">
+                                    <TextBlock.Text>
+                                        <MultiBinding Converter="{StaticResource CategoryNamePiePlotterConverter}">
+                                            <Binding RelativeSource="{RelativeSource AncestorType={x:Type controls:PiePlotter}}"/>
+                                            <Binding Path=""/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Amount: "/>
-                                    <TextBlock Text="{Binding Path=Amount}"/>
+                                    <TextBlock Text="{Binding Path=(controls:PieChartLayout.PlottedProperty), RelativeSource={RelativeSource AncestorType={x:Type controls:PiePlotter}}}"/>
+                                    <TextBlock Text=": "/>
+                                    <TextBlock>
+                                        <TextBlock.Text>
+                                            <MultiBinding Converter="{StaticResource AmountPiePlotterConverter}">
+                                                <Binding RelativeSource="{RelativeSource AncestorType={x:Type controls:PiePlotter}}"/>
+                                                <Binding Path=""/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
