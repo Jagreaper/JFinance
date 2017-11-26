@@ -7,6 +7,7 @@
              xmlns:selectors="clr-namespace:JFinance.Windows.WPF.Selectors"
              xmlns:converters="clr-namespace:JFinance.Windows.WPF.Converters"
              xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls"
+             xmlns:views="clr-namespace:JFinance.Windows.WPF.Views"
              xmlns:local="clr-namespace:JFinance.Windows.WPF.Views"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
@@ -33,7 +34,7 @@
                             <TextBlock Text="Description" FontSize="{StaticResource FontSize}" FontWeight="Bold"/>
                         </StackPanel>
 
-                        <StackPanel>
+                        <StackPanel Margin="0 0 10 0">
                             <TextBlock Text="{Binding Category}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
                             <TextBlock Text="{Binding Timestamp}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
                             <TextBlock FontSize="{StaticResource FontSizeL}"
@@ -48,6 +49,10 @@
                             <TextBlock Text="{Binding Description}" FontSize="{StaticResource FontSize}" Foreground="#555555"/>
                         </StackPanel>
                     </StackPanel>
+
+                    <controls:PathButton Content="Remove" FlowDirection="LeftToRight" Padding="10 5" Margin="0 14 0 14" Width="110"
+                                         BorderThickness="0 0 0 0" FontSize="{StaticResource FontSizeL}" PathData="{StaticResource MinusPath}"
+                                         Command="{Binding DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type views:SummaryView}}}" CommandParameter="{Binding}"/>
                 </DockPanel>
             </Grid>
         </DataTemplate>

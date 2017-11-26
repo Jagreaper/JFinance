@@ -244,6 +244,7 @@
     <Content Include="Assets\icon.svg" />
     <Content Include="Assets\man-user.svg" />
     <Content Include="Assets\marketing-pie-chart-pieces.svg" />
+    <Content Include="Assets\minus-sign-inside-a-black-circle.svg" />
     <Content Include="Assets\plus.svg" />
     <Content Include="Assets\settings-work-tool.svg">
       <SubType>Designer</SubType>
