@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace JFinance.Windows.WPF.ViewModels
@@ -42,6 +43,7 @@ namespace JFinance.Windows.WPF.ViewModels
 
         public void Navigate(string arg)
         {
+            ((ViewModel)((UserControl)this.ContentControl)?.DataContext)?.OnClosing(this, EventArgs.Empty);
             switch(arg)
             {
                 case "NavigateSummary":
@@ -49,6 +51,9 @@ namespace JFinance.Windows.WPF.ViewModels
                     break;
                 case "NavigateGraph":
                     this.ContentControl = new GraphView();
+                    break;
+                case "NavigateThemes":
+                    this.ContentControl = new ThemeView();
                     break;
                 default:
                     this.ContentControl = null;

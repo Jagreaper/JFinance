@@ -8,6 +8,16 @@ namespace JFinance.Mvvm
 {
     public abstract class ViewModel : ObservableObject
     {
-        // Skip
+        #region Events
+
+        public EventHandler<EventArgs> Closing;
+
+        #endregion
+
+        #region Methods
+
+        public virtual void OnClosing(object sender, EventArgs e) => this.Closing?.Invoke(sender, e);
+
+        #endregion
     }
 }

@@ -14,56 +14,65 @@ namespace JFinance.Windows.WPF.Styles
         #region Fields
 
         [JsonIgnore]
-        public Brush accentMainBrush;
+        private string name;
 
         [JsonIgnore]
-        public Brush accentDarkBrush;
+        private Brush accentMainBrush;
 
         [JsonIgnore]
-        public Brush selectedBrush;
+        private Brush accentDarkBrush;
 
         [JsonIgnore]
-        public Brush validationBrush;
+        private Brush selectedBrush;
 
         [JsonIgnore]
-        public Brush accentBrush;
+        private Brush validationBrush;
 
         [JsonIgnore]
-        public Brush markerBrush;
+        private Brush accentBrush;
 
         [JsonIgnore]
-        public Brush strongBrush;
+        private Brush markerBrush;
 
         [JsonIgnore]
-        public Brush mainBrush;
+        private Brush strongBrush;
 
         [JsonIgnore]
-        public Brush primaryBrush;
+        private Brush mainBrush;
 
         [JsonIgnore]
-        public Brush alternativeBrush;
+        private Brush primaryBrush;
 
         [JsonIgnore]
-        public Brush mouseOverBrush;
+        private Brush alternativeBrush;
 
         [JsonIgnore]
-        public Brush basicBrush;
+        private Brush mouseOverBrush;
 
         [JsonIgnore]
-        public Brush semiBasicBrush;
+        private Brush basicBrush;
 
         [JsonIgnore]
-        public Brush headerBrush;
+        private Brush semiBasicBrush;
 
         [JsonIgnore]
-        public Brush complementaryBrush;
+        private Brush headerBrush;
 
         [JsonIgnore]
-        public Brush backgroundBrush;
+        private Brush complementaryBrush;
+
+        [JsonIgnore]
+        private Brush backgroundBrush;
 
         #endregion
 
         #region Properties
+
+        public string Name
+        {
+            get => this.name;
+            set => this.Set(ref this.name, value);
+        }
 
         public Brush AccentMainBrush
         {

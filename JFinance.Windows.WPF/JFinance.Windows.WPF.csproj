@@ -119,17 +119,22 @@
     <Compile Include="Helpers\WpfHelper.cs" />
     <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="Selectors\IndexedColourSelector.cs" />
+    <Compile Include="Selectors\ThemeDataTemplateSelector.cs" />
     <Compile Include="Selectors\TransactionsSelectionDataTemplateSelector.cs" />
     <Compile Include="Styles\Theme.cs" />
     <Compile Include="Styles\Themes.cs" />
     <Compile Include="ViewModels\GraphViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SummaryViewModel.cs" />
+    <Compile Include="ViewModels\ThemeViewModel.cs" />
     <Compile Include="Views\GraphView.xaml.cs">
       <DependentUpon>GraphView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SummaryView.xaml.cs">
       <DependentUpon>SummaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemeView.xaml.cs">
+      <DependentUpon>ThemeView.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\Legend.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +180,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SummaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThemeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
