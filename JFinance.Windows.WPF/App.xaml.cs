@@ -63,7 +63,7 @@ namespace JFinance.Windows.WPF
             if (this.WorkingDirectory.Exists)
                 this.ReadTransactions();
 
-            this.CurrentTheme = Themes.ClassicDarkTheme;
+            this.CurrentTheme = Themes.ClassicBlueTheme;
 
             base.OnStartup(e);
         }
