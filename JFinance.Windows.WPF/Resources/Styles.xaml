@@ -7,6 +7,10 @@
         <ResourceDictionary Source="Icons.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource MarkerBrush}"/>
+    </Style>
+    
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BasicBrush}"/>
@@ -605,6 +609,7 @@
         </Setter>
     </Style>
 
+    <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyle}"/>
     <Style TargetType="Button" BasedOn="{StaticResource ButtonStyle}"/>
     <Style TargetType="controls:PathButton" BasedOn="{StaticResource PathButtonStyle}"/>
     <Style TargetType="controls:PathRadioButton" BasedOn="{StaticResource PathRadioButtonStyle}"/>

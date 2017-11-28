@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:JFinance.Windows.WPF.Views"
         xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls"
         mc:Ignorable="d" Height="600" Width="800" MinHeight="600" MinWidth="800"
-        Title="Project JFinance" Background="{StaticResource BackgroundBrush}">
+        Title="Project JFinance" Background="{DynamicResource BackgroundBrush}">
     <Grid Margin="10 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
