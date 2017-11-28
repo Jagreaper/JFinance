@@ -19,11 +19,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border">
-                                    <Setter.Value>
-                                        <SolidColorBrush Color="Black"/>
-                                    </Setter.Value>
-                                </Setter>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource MarkerBrush}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
