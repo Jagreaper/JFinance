@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JFinance.Windows.WPF.Styles;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -13,10 +14,12 @@ namespace JFinance.Windows.WPF.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            Theme theme = ((App)App.Current).CurrentTheme;
+
             if (!string.IsNullOrEmpty((string)value))
-                return Brushes.Green;
+                return theme.ValidBrush;
             else
-                return Brushes.Red;
+                return theme.InvalidBrush;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

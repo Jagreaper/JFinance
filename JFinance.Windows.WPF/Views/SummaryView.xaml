@@ -91,7 +91,7 @@
                                    Foreground="{Binding BalanceTransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
 
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Income" Foreground="{DynamicResource MarkerBrush}"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" FontSize="{StaticResource FontSize}" Foreground="Green" Width="78"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource ValidBrush}" Width="78"/>
                     </StackPanel>
 
                     <StackPanel>
@@ -99,7 +99,7 @@
                         <ComboBox Margin="0 0 0 5" ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}" Width="78"/>
 
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Spendings" Foreground="{DynamicResource MarkerBrush}"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" FontSize="{StaticResource FontSize}" Foreground="Red" Width="78"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource InvalidBrush}" Width="78"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

@@ -26,7 +26,10 @@ namespace JFinance.Windows.WPF.Styles
         private Brush selectedBrush;
 
         [JsonIgnore]
-        private Brush validationBrush;
+        private Brush validBrush;
+
+        [JsonIgnore]
+        private Brush invalidBrush;
 
         [JsonIgnore]
         private Brush accentBrush;
@@ -92,10 +95,16 @@ namespace JFinance.Windows.WPF.Styles
             set => this.Set(ref this.selectedBrush, value);
         }
 
-        public Brush ValidationBrush
+        public Brush ValidBrush
         {
-            get => this.validationBrush;
-            set => this.Set(ref this.validationBrush, value);
+            get => this.validBrush;
+            set => this.Set(ref this.validBrush, value);
+        }
+
+        public Brush InvalidBrush
+        {
+            get => this.invalidBrush;
+            set => this.Set(ref this.invalidBrush, value);
         }
 
         public Brush AccentBrush

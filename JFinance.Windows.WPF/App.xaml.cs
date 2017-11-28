@@ -86,7 +86,8 @@ namespace JFinance.Windows.WPF
             this.Resources["AccentMainBrush"] = theme.AccentMainBrush;
             this.Resources["AccentDarkBrush"] = theme.AccentDarkBrush;
             this.Resources["SelectedBrush"] = theme.SelectedBrush;
-            this.Resources["ValidationBrush"] = theme.ValidationBrush;
+            this.Resources["ValidBrush"] = theme.ValidBrush;
+            this.Resources["InvalidBrush"] = theme.InvalidBrush;
             this.Resources["AccentBrush"] = theme.AccentBrush;
             this.Resources["MarkerBrush"] = theme.MarkerBrush;
             this.Resources["StrongBrush"] = theme.StrongBrush;

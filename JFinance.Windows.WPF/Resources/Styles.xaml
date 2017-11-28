@@ -561,7 +561,6 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ValidationTooltipTemplate}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -662,7 +661,6 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ValidationTooltipTemplate}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="PasswordBox">

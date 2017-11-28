@@ -4,7 +4,8 @@
     <SolidColorBrush x:Key="AccentMainBrush">#FF3399FF</SolidColorBrush>
     <SolidColorBrush x:Key="AccentDarkBrush">#FF007ACC</SolidColorBrush>
     <SolidColorBrush x:Key="SelectedBrush">#FFFFFFFF</SolidColorBrush>
-    <SolidColorBrush x:Key="ValidationBrush">#FFF33333</SolidColorBrush>
+    <SolidColorBrush x:Key="ValidBrush">#FFF33333</SolidColorBrush>
+    <SolidColorBrush x:Key="InvalidBrush">#FFF33333</SolidColorBrush>
 
     <SolidColorBrush x:Key="AccentBrush">#FF007ACC</SolidColorBrush>
     <SolidColorBrush x:Key="MarkerBrush">#FF1E1E1E</SolidColorBrush>
