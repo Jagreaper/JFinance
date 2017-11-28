@@ -16,7 +16,7 @@
                     Style="{StaticResource ButtonStyle}" FontSize="{StaticResource FontSizeL}" Padding="5 5">
                 <Button.Content>
                     <StackPanel>
-                        <TextBlock Text="{Binding Name}" FontSize="{StaticResource FontSizeL}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Name}" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Foreground="{DynamicResource MarkerBrush}"/>
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Stroke="Black" StrokeThickness="1.15" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding AccentMainBrush}"/>
                             <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding AccentDarkBrush}"/>
@@ -36,7 +36,7 @@
                     Style="{StaticResource ButtonStyle}" FontSize="{StaticResource FontSizeL}" Padding="5 5">
                 <Button.Content>
                     <StackPanel>
-                        <TextBlock Text="{Binding Name}" FontSize="{StaticResource FontSizeL}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Name}" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Foreground="{DynamicResource MarkerBrush}"/>
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Stroke="Black" StrokeThickness="1.15" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding AccentMainBrush}"/>
                             <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding AccentDarkBrush}"/>
@@ -60,7 +60,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Margin="0 10 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Themes"/>
+        <TextBlock Margin="0 10 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Themes" Foreground="{DynamicResource MarkerBrush}"/>
         
         <ListBox Grid.Row="1" x:Name="ListBox" Margin="0 5 0 5" BorderThickness="0" ItemsSource="{Binding Themes}" ScrollViewer.VerticalScrollBarVisibility="Disabled"
                  ItemTemplateSelector="{StaticResource ThemeDataTemplateSelector}" Background="Transparent">

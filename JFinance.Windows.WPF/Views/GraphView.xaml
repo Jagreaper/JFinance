@@ -21,7 +21,7 @@
         <selectors:IndexedColourSelector Brushes="{StaticResource brushes}" x:Key="IndexedColourSelector"/>
     </UserControl.Resources>
     <Grid>
-        <controls:PieChartLayout Margin="10" PlottedProperty="Amount" CategoryName="Class" 
+        <controls:PieChartLayout Margin="10" PlottedProperty="Amount" CategoryName="Class"
                                  DataContext="{Binding CategorizedTransactions}" ColorSelector="{StaticResource IndexedColourSelector}"/>
     </Grid>
 </UserControl>
