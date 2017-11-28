@@ -28,6 +28,8 @@ namespace JFinance.Windows.WPF.ViewModels
 
         private ObservableCollection<Theme> themes;
 
+        private bool isButtonEnabled;
+
         #endregion
 
         #region Properties
@@ -42,15 +44,29 @@ namespace JFinance.Windows.WPF.ViewModels
             set => this.Set(ref this.themes, value);
         }
 
+        public bool IsButtonEnabled
+        {
+            get => this.isButtonEnabled;
+            set => this.Set(ref this.isButtonEnabled, value);
+        }
+
         private Theme OldTheme { get; set; }
 
         #endregion
 
         #region Methods
 
-        public void Save() => this.OldTheme = ((App)App.Current).CurrentTheme;
+        public void Save()
+        {
+            this.OldTheme = ((App) App.Current).CurrentTheme;
+            this.IsButtonEnabled = false;
+        }
 
-        public void Select(Theme theme) => ((App)App.Current).CurrentTheme = theme;
+        public void Select(Theme theme)
+        {
+            ((App)App.Current).CurrentTheme = theme;
+            this.IsButtonEnabled = theme != this.OldTheme ? true : false;
+        }
 
         public override void OnClosing(object sender, EventArgs e) => ((App)App.Current).CurrentTheme = this.OldTheme;
 
