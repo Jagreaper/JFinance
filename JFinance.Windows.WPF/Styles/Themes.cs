@@ -75,22 +75,22 @@ namespace JFinance.Windows.WPF.Styles
             return new SystemTheme
             {
                 Name = "Classic Dark",
-                AccentMainBrush    = (SolidColorBrush)(new BrushConverter().ConvertFrom("#88888888")),
-                AccentDarkBrush    = (SolidColorBrush)(new BrushConverter().ConvertFrom("#77777777")),
+                AccentMainBrush    = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF666666")),
+                AccentDarkBrush    = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF555555")),
                 SelectedBrush      = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFFFF")),
                 ValidationBrush    = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF33333")),
-                AccentBrush        = (SolidColorBrush)(new BrushConverter().ConvertFrom("#22222222")),
+                AccentBrush        = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF363636")),
                 MarkerBrush        = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFFFF")),
                 StrongBrush        = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF717171")),
                 MainBrush          = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFFFF")),
-                PrimaryBrush       = (SolidColorBrush)(new BrushConverter().ConvertFrom("#88888888")),
-                AlternativeBrush   = (SolidColorBrush)(new BrushConverter().ConvertFrom("#05050505")),
-                MouseOverBrush     = (SolidColorBrush)(new BrushConverter().ConvertFrom("#44444444")),
+                PrimaryBrush       = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF666666")),
+                AlternativeBrush   = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF575757")),
+                MouseOverBrush     = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF505050")),
                 BasicBrush         = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFCCCEDB")),
-                SemiBasicBrush     = (SolidColorBrush)(new BrushConverter().ConvertFrom("#66CCCEDB")),
+                SemiBasicBrush     = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFCCCEDB")),
                 HeaderBrush        = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF007ACC")),
                 ComplementaryBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFDBDDE6")),
-                BackgroundBrush    = (SolidColorBrush)(new BrushConverter().ConvertFrom("#66666666")),
+                BackgroundBrush    = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF444444")),
             };
         }
 
