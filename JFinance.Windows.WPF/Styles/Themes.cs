@@ -84,7 +84,7 @@ namespace JFinance.Windows.WPF.Styles
                 StrongBrush        = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF717171")),
                 MainBrush          = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFFFF")),
                 PrimaryBrush       = (SolidColorBrush)(new BrushConverter().ConvertFrom("#88888888")),
-                AlternativeBrush   = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF5F5F5")),
+                AlternativeBrush   = (SolidColorBrush)(new BrushConverter().ConvertFrom("#05050505")),
                 MouseOverBrush     = (SolidColorBrush)(new BrushConverter().ConvertFrom("#44444444")),
                 BasicBrush         = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFCCCEDB")),
                 SemiBasicBrush     = (SolidColorBrush)(new BrushConverter().ConvertFrom("#66CCCEDB")),
