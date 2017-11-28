@@ -13,52 +13,54 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <DockPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
             <controls:PathRadioButton Content="Home" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource HomePath}"
+							          PathData="{StaticResource HomePath}" Grid.Column="0"
                                       FlowDirection="LeftToRight" IsChecked="True"
 							          Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateHome"/>
 
             <controls:PathRadioButton Content="Summary" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource SummaryPath}"
+						    	      PathData="{StaticResource SummaryPath}" Grid.Column="1"
                                       FlowDirection="LeftToRight" IsChecked="False"
-							          Padding="10 5" BorderThickness="0 4 0 0"
+						    	      Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSummary"/>
 
             <controls:PathRadioButton Content="Breakdown" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource GraphPath}"
+							          PathData="{StaticResource GraphPath}" Grid.Column="2"
                                       FlowDirection="LeftToRight" IsChecked="False"
 							          Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateGraph"/>
 
             <controls:PathRadioButton Content="Debts" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource PeoplePath}"
+							          PathData="{StaticResource PeoplePath}" Grid.Column="3"
                                       FlowDirection="LeftToRight" IsChecked="False"
 							          Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateDebts"/>
-        </DockPanel>
 
-        <DockPanel Grid.Column="2" HorizontalAlignment="Right">
             <controls:PathRadioButton Content="Themes" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource ThemePath}"
+							          PathData="{StaticResource ThemePath}" Grid.Column="5"
                                       FlowDirection="LeftToRight" IsChecked="False"
 							          Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateThemes"/>
 
             <controls:PathRadioButton Content="Settings" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource SettingsPath}"
+							          PathData="{StaticResource SettingsPath}" Grid.Column="6"
                                       FlowDirection="LeftToRight" IsChecked="False"
 							          Padding="10 5" BorderThickness="0 4 0 0"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSettings"/>
-        </DockPanel>
+        </Grid>
 
-        <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding ContentControl}"/>
+         <ContentControl Grid.Row="1" Content="{Binding ContentControl}"/>
     </Grid>
 </Window>
