@@ -6,15 +6,14 @@
              xmlns:local="clr-namespace:JFinance.Windows.WPF.Views"
              xmlns:selectors="clr-namespace:JFinance.Windows.WPF.Selectors"
              xmlns:styles="clr-namespace:JFinance.Windows.WPF.Styles"
-             xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls"
+             xmlns:controls="clr-namespace:Jagerts.Arie.Windows.Classic.Controls;assembly=Jagerts.Arie.Windows.Classic.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type styles:Theme}" x:Key="ThemeTemplate">
-            <Button HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Width="130" Margin="0 3 0 3"
-                    Command="{Binding ElementName=ListBox, Path=DataContext.SelectCommand}" CommandParameter="{Binding }"
-                    Style="{StaticResource ButtonStyle}" FontSize="{StaticResource FontSizeL}" Padding="5 5">
-                <Button.Content>
+            <controls:Button Width="130" Margin="0 3 0 3" BorderThickness="0 0 0 0" Padding="5 5"
+                             Command="{Binding ElementName=ListBox, Path=DataContext.SelectCommand}" CommandParameter="{Binding }">
+                <controls:Button.Content>
                     <StackPanel>
                         <TextBlock Text="{Binding Name}" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Foreground="{DynamicResource MarkerBrush}"/>
                         <StackPanel Orientation="Horizontal">
@@ -26,17 +25,16 @@
                             <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding BackgroundBrush}"/>
                         </StackPanel>
                     </StackPanel>
-                </Button.Content>
-            </Button>
+                </controls:Button.Content>
+            </controls:Button>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type styles:SystemTheme}" x:Key="SystemThemeTemplate">
-            <Button HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" Width="130" Margin="0 3 0 3" BorderThickness="0 0 0 0"
-                    Command="{Binding ElementName=ListBox, Path=DataContext.SelectCommand}" CommandParameter="{Binding }"
-                    Style="{StaticResource ButtonStyle}" FontSize="{StaticResource FontSizeL}" Padding="5 5">
-                <Button.Content>
+            <controls:Button Width="130" Margin="0 3 0 3" BorderThickness="0 0 0 0" Padding="5 5"
+                             Command="{Binding ElementName=ListBox, Path=DataContext.SelectCommand}" CommandParameter="{Binding }">
+                <controls:Button.Content>
                     <StackPanel>
-                        <TextBlock Text="{Binding Name}" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Foreground="{DynamicResource MarkerBrush}"/>
+                        <TextBlock Text="{Binding Name}"/>
                         <StackPanel Orientation="Horizontal">
                             <Rectangle Stroke="Black" StrokeThickness="1.15" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding AccentMainBrush}"/>
                             <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding AccentDarkBrush}"/>
@@ -46,8 +44,8 @@
                             <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding BackgroundBrush}"/>
                         </StackPanel>
                     </StackPanel>
-                </Button.Content>
-            </Button>
+                </controls:Button.Content>
+            </controls:Button>
         </DataTemplate>
 
         <selectors:ThemeDataTemplateSelector x:Key="ThemeDataTemplateSelector" ThemeTemplate="{StaticResource ThemeTemplate}"
@@ -72,8 +70,8 @@
         </ListBox>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <controls:PathButton Content="Save" FlowDirection="LeftToRight" Padding="10 5" BorderThickness="0 0 0 0" IsEnabled="{Binding IsButtonEnabled}"
-                             FontSize="{StaticResource FontSizeL}" PathData="{StaticResource AddPath}" Command="{Binding SaveCommand}"/>
+            <controls:PathButton Content="Save" IsEnabled="{Binding IsButtonEnabled}" FontSize="{StaticResource FontSizeL}"
+                                 PathData="{StaticResource AddPath}" Command="{Binding SaveCommand}" BorderThickness="0 0 0 0"/>
         </StackPanel>
     </Grid>
 </UserControl>

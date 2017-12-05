@@ -6,7 +6,7 @@
              xmlns:models="clr-namespace:JFinance.Models"
              xmlns:selectors="clr-namespace:JFinance.Windows.WPF.Selectors"
              xmlns:converters="clr-namespace:JFinance.Windows.WPF.Converters"
-             xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls"
+             xmlns:controls="clr-namespace:Jagerts.Arie.Windows.Classic.Controls;assembly=Jagerts.Arie.Windows.Classic.Controls"
              xmlns:views="clr-namespace:JFinance.Windows.WPF.Views"
              xmlns:local="clr-namespace:JFinance.Windows.WPF.Views"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
@@ -50,8 +50,8 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <controls:PathButton Content="Remove" FlowDirection="LeftToRight" Padding="10 5" Margin="0 14 0 14" Width="110"
-                                         BorderThickness="0 0 0 0" FontSize="{StaticResource FontSizeL}" PathData="{StaticResource MinusPath}"
+                    <controls:PathButton Content="Remove" Margin="0 16 0 16" Width="110" BorderThickness="0 0 0 0"
+                                         FontSize="{StaticResource FontSizeL}" PathData="{StaticResource MinusPath}"
                                          Command="{Binding DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type views:SummaryView}}}" CommandParameter="{Binding}"/>
                 </DockPanel>
             </Grid>
@@ -121,7 +121,7 @@
                         <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
                                  BorderBrush="{Binding AddTags, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
 
-                        <controls:PathButton Content="Add" FlowDirection="LeftToRight" Padding="10 5" Width="142" BorderThickness="0 0 0 0"
+                        <controls:PathButton Content="Add" Width="142" BorderThickness="0 0 0 0"
                                              FontSize="{StaticResource FontSizeL}" PathData="{StaticResource AddPath}" Command="{Binding AddCommand}">
                             <controls:PathButton.IsEnabled>
                                 <MultiBinding Converter="{StaticResource MultiToBoolValidationConverter}">
