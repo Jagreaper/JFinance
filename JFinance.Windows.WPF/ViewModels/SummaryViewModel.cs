@@ -1,5 +1,5 @@
 ﻿using JFinance.Models;
-using JFinance.Mvvm;
+using Jagerts.Arie.Standard.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

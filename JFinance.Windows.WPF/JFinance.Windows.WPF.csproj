@@ -53,6 +53,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Jagerts.Arie.Standard.Mvvm, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jagerts.Arie.Standard.Mvvm.0.1.0\lib\netstandard2.0\Jagerts.Arie.Standard.Mvvm.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -225,10 +228,6 @@
     <ProjectReference Include="..\JFinance.Extensions\JFinance.Extensions.csproj">
       <Project>{f47932d7-d886-4b64-a8c3-d8d87b581133}</Project>
       <Name>JFinance.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JFinance.Mvvm\JFinance.Mvvm.csproj">
-      <Project>{986bbca1-9d1e-4294-bbaa-74589e7a1ca7}</Project>
-      <Name>JFinance.Mvvm</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

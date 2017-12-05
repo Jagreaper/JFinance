@@ -1,4 +1,4 @@
-﻿using JFinance.Mvvm;
+﻿using Jagerts.Arie.Standard.Mvvm;
 using JFinance.Windows.WPF.Views;
 using System;
 using System.Collections.Generic;

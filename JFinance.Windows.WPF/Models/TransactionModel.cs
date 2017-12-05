@@ -1,4 +1,4 @@
-﻿using JFinance.Mvvm;
+﻿using Jagerts.Arie.Standard.Mvvm;
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
