@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
 
 namespace JFinance.Windows.WPF.ViewModels
 {
@@ -33,6 +34,7 @@ namespace JFinance.Windows.WPF.ViewModels
             this.TransactionComboBoxItems.Add(TransactionType.Debit);
 
             this.AddCommand = new RelayCommand(this.AddTransaction);
+            this.DeleteCommand = new RelayCommand<TransactionModel>(this.DeleteTransaction);
         }
 
         #endregion
@@ -60,6 +62,8 @@ namespace JFinance.Windows.WPF.ViewModels
         #region Properties
 
         public ICommand AddCommand { get; private set; }
+
+        public ICommand DeleteCommand { get; private set; }
 
         public ObservableCollection<TransactionModel> Transactions
         {
@@ -217,6 +221,17 @@ namespace JFinance.Windows.WPF.ViewModels
             this.RaisePropertyChanged("IncomeString");
             this.RaisePropertyChanged("SpendingsString");
             this.RaisePropertyChanged("BalanceString");
+        }
+
+        public void DeleteTransaction(TransactionModel transaction)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                this.Transactions.Remove(transaction);
+                this.RaisePropertyChanged("IncomeString");
+                this.RaisePropertyChanged("SpendingsString");
+                this.RaisePropertyChanged("BalanceString");
+            });
         }
 
         #endregion

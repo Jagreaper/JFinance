@@ -22,7 +22,12 @@
 
         <DataTemplate DataType="{x:Type models:TransactionModel}" x:Key="TransactionModelTemplate">
             <Grid Margin="5 5 5 5">
-                <DockPanel>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel Margin="0 0 20 0">
                     <Border Margin="0 0 5 0" BorderThickness="5 0 0 0"
                             BorderBrush="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
 
@@ -34,11 +39,10 @@
                             <TextBlock Text="Description" FontSize="{StaticResource FontSize}" FontWeight="Bold" Foreground="{DynamicResource MarkerBrush}"/>
                         </StackPanel>
 
-                        <StackPanel Margin="0 0 10 0">
+                        <StackPanel>
                             <TextBlock Text="{Binding Category}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource MarkerBrush}"/>
                             <TextBlock Text="{Binding Timestamp}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource MarkerBrush}"/>
-                            <TextBlock FontSize="{StaticResource FontSizeL}"
-                                       Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
+                            <TextBlock FontSize="{StaticResource FontSizeL}" Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
                                 <TextBlock.Text>
                                     <MultiBinding Converter="{StaticResource TransactionTypeDoubleToStringConverter}">
                                         <Binding Path="Amount"/>
@@ -49,11 +53,12 @@
                             <TextBlock Text="{Binding Description}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource MarkerBrush}"/>
                         </StackPanel>
                     </StackPanel>
+                </StackPanel>
 
-                    <controls:PathButton Content="Remove" Margin="0 16 0 16" Width="110" BorderThickness="0 0 0 0"
-                                         FontSize="{StaticResource FontSizeL}" PathData="{StaticResource MinusPath}"
-                                         Command="{Binding DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type views:SummaryView}}}" CommandParameter="{Binding}"/>
-                </DockPanel>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <controls:PathButton Content="Remove" FontSize="{StaticResource FontSizeL}" PathData="{StaticResource MinusPath}"
+                                         Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}"/>
+                </StackPanel>
             </Grid>
         </DataTemplate>
 
@@ -67,13 +72,18 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Margin="0 10 10 10">
+        <Grid Margin="0 10 10 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
             <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Transactions" Foreground="{DynamicResource MarkerBrush}"/>
 
-            <ListBox Margin="0 5 0 5" BorderThickness="0" ItemsSource="{Binding Transactions}" Background="Transparent"
-                     ItemTemplateSelector="{StaticResource TransactionsSelectionDataTemplateSelector}">
+            <ListBox Grid.Row="1" Margin="0 5 0 5" BorderThickness="0" ItemsSource="{Binding Transactions}" Background="Transparent"
+                     HorizontalContentAlignment="Stretch" ItemTemplateSelector="{StaticResource TransactionsSelectionDataTemplateSelector}">
             </ListBox>
-        </StackPanel>
+        </Grid>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -87,19 +97,19 @@
                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <StackPanel Margin="0 0 20 0">
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Balance" Foreground="{DynamicResource MarkerBrush}"/>
-                        <TextBlock Margin="0 0 0 10" Text="{Binding BalanceString}" FontSize="{StaticResource FontSize}" Width="78"
+                        <TextBlock Margin="0 0 0 10" Text="{Binding BalanceString}" FontSize="{StaticResource FontSize}"
                                    Foreground="{Binding BalanceTransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
 
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Income" Foreground="{DynamicResource MarkerBrush}"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource ValidBrush}" Width="78"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource ValidBrush}"/>
                     </StackPanel>
 
                     <StackPanel>
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Past" Foreground="{DynamicResource MarkerBrush}"/>
-                        <ComboBox Margin="0 0 0 5" ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}" Width="78"/>
+                        <controls:ComboBox Margin="0 0 0 5" ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}"/>
 
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Spendings" Foreground="{DynamicResource MarkerBrush}"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource InvalidBrush}" Width="78"/>
+                        <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" FontSize="{StaticResource FontSize}" Foreground="{DynamicResource InvalidBrush}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -107,7 +117,7 @@
             <StackPanel Grid.Row="1" Margin="10 10 10 10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Add Transactions" Foreground="{DynamicResource MarkerBrush}"/>
 
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                     <StackPanel Margin="0 0 20 0">
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Amount" Foreground="{DynamicResource MarkerBrush}"/>
                         <TextBox Margin="0 0 0 5" Text="{Binding AddAmountString, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
@@ -116,13 +126,26 @@
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Category" Foreground="{DynamicResource MarkerBrush}"/>
                         <TextBox Margin="0 0 0 5" Text="{Binding AddCategory, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
                                  BorderBrush="{Binding AddCategory, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
+                    </StackPanel>
 
+                    <StackPanel>
+                        <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Description" Foreground="{DynamicResource MarkerBrush}"/>
+                        <TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
+                                 BorderBrush="{Binding AddDescription, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
+                        
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Tags" Foreground="{DynamicResource MarkerBrush}"/>
                         <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
                                  BorderBrush="{Binding AddTags, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
 
-                        <controls:PathButton Content="Add" Width="142" BorderThickness="0 0 0 0"
-                                             FontSize="{StaticResource FontSizeL}" PathData="{StaticResource AddPath}" Command="{Binding AddCommand}">
+                        <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Date" Foreground="{DynamicResource MarkerBrush}"/>
+                        <DatePicker SelectedDate="{Binding AddSelectedDate, Mode=TwoWay, TargetNullValue={x:Static system:DateTime.Now}}" Width="142" Background="Transparent"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                    <StackPanel Margin="0 0 20 0" VerticalAlignment="Bottom">
+                        <controls:PathButton Content="Add" Width="142" FontSize="{StaticResource FontSizeL}"
+                                             PathData="{StaticResource AddPath}" Command="{Binding AddCommand}">
                             <controls:PathButton.IsEnabled>
                                 <MultiBinding Converter="{StaticResource MultiToBoolValidationConverter}">
                                     <Binding Path="AddAmount"/>
@@ -135,15 +158,8 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Description" Foreground="{DynamicResource MarkerBrush}"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
-                                 BorderBrush="{Binding AddDescription, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
-
-                        <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Date" Foreground="{DynamicResource MarkerBrush}"/>
-                        <DatePicker SelectedDate="{Binding AddSelectedDate, Mode=TwoWay, TargetNullValue={x:Static system:DateTime.Now}}" Width="142" Background="Transparent"/>
-
                         <TextBlock FontSize="{StaticResource FontSize}" FontWeight="Bold" Text="Transaction Type" Foreground="{DynamicResource MarkerBrush}"/>
-                        <ComboBox ItemsSource="{Binding TransactionComboBoxItems}" SelectedItem="{Binding AddTransactionType, Mode=TwoWay}" Width="142"/>
+                        <controls:ComboBox ItemsSource="{Binding TransactionComboBoxItems}" SelectedItem="{Binding AddTransactionType, Mode=TwoWay}" Width="142"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
