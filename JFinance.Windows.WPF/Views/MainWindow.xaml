@@ -49,6 +49,6 @@
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSettings"/>
         </Grid>
 
-         <ContentControl Grid.Row="1" Content="{Binding ContentControl}"/>
+         <ContentControl Grid.Row="1" Margin="10 10 10 10" Content="{Binding ContentControl}"/>
     </Grid>
 </Window>
