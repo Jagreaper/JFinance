@@ -14,13 +14,14 @@
         </Style>
 
         <Style TargetType="{x:Type ToolTip}">
+            <Setter Property="Background" Value="{DynamicResource ArieMainBackgroundBrush}"/>
             <Setter Property="Opacity" Value="0.95"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <!-- modify the tooltip control template to add a drop shadow-->
                     <ControlTemplate TargetType="{x:Type ToolTip}">
                         <Grid Background="Transparent" Margin="5" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                            <Rectangle Fill="White" Height="{TemplateBinding Height}" RadiusX="7.5" RadiusY="7.5">
+                            <Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" RadiusX="7.5" RadiusY="7.5">
                                 <Rectangle.BitmapEffect>
                                     <DropShadowBitmapEffect ShadowDepth="3"/>
                                 </Rectangle.BitmapEffect>
