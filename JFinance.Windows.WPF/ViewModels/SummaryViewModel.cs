@@ -105,7 +105,7 @@ namespace JFinance.Windows.WPF.ViewModels
 
         public string SpendingsString => string.Format("${0} DB", this.Spendings);
 
-        public string BalanceString => string.Format("${0} {1}", this.Balance, this.Balance >= 0 ? "CR" : "DB");
+        public string BalanceString => string.Format("${0} {1}", Math.Abs(this.Balance), this.Balance >= 0 ? "CR" : "DB");
 
         public string DurationString
         {
@@ -113,9 +113,7 @@ namespace JFinance.Windows.WPF.ViewModels
             set
             {
                 this.Set(ref this.durationString, value);
-                this.RaisePropertyChanged("IncomeString");
-                this.RaisePropertyChanged("SpendingsString");
-                this.RaisePropertyChanged("BalanceString");
+                this.UpdateOverview();
             }
         }
 
@@ -218,9 +216,7 @@ namespace JFinance.Windows.WPF.ViewModels
             this.AddTransactionType = TransactionType.Credit;
             this.AddTags = "";
 
-            this.RaisePropertyChanged("IncomeString");
-            this.RaisePropertyChanged("SpendingsString");
-            this.RaisePropertyChanged("BalanceString");
+            this.UpdateOverview();
         }
 
         public void DeleteTransaction(TransactionModel transaction)
@@ -228,10 +224,16 @@ namespace JFinance.Windows.WPF.ViewModels
             Application.Current.Dispatcher.Invoke(() =>
             {
                 this.Transactions.Remove(transaction);
-                this.RaisePropertyChanged("IncomeString");
-                this.RaisePropertyChanged("SpendingsString");
-                this.RaisePropertyChanged("BalanceString");
+                this.UpdateOverview();
             });
+        }
+
+        public void UpdateOverview()
+        {
+            this.RaisePropertyChanged("IncomeString");
+            this.RaisePropertyChanged("SpendingsString");
+            this.RaisePropertyChanged("BalanceString");
+            this.RaisePropertyChanged("BalanceTransactionType");
         }
 
         #endregion

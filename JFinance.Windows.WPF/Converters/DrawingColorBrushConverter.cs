@@ -9,19 +9,26 @@ using System.Windows.Media;
 
 namespace JFinance.Windows.WPF.Converters
 {
-    class DoubleToBrushValidationConverter : IValueConverter
+    class DrawingColorBrushConverter : IValueConverter
     {
+        #region Methods
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((double)value >= 0)
-                return Brushes.Green;
-            else
-                return Brushes.Red;
+            if (value is System.Drawing.Color dColor)
+                return new SolidColorBrush(Color.FromArgb(dColor.A, dColor.R, dColor.G, dColor.B));
+
+            if (value is Color mColor)
+                return new SolidColorBrush(mColor);
+
+            throw new NotSupportedException();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

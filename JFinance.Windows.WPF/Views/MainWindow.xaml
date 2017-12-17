@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:JFinance.Windows.WPF.Views"
         xmlns:controls="clr-namespace:Jagerts.Arie.Windows.Classic.Controls;assembly=Jagerts.Arie.Windows.Classic.Controls"
         mc:Ignorable="d" Height="600" Width="800" MinHeight="600" MinWidth="800"
-        Title="Project JFinance" Background="{DynamicResource BackgroundBrush}">
+        Title="Project JFinance" Background="{DynamicResource ArieWindowBackgroundBrush}">
     <Grid Margin="10 10 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -24,33 +24,27 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             
-            <controls:PathRadioButton Content="Home" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource HomePath}"
+            <controls:PathRadioButton Content="Home" PathData="{StaticResource HomePath}"
                                       Grid.Column="0" IsChecked="True"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateHome"/>
 
-            <controls:PathRadioButton Content="Summary" FontSize="{StaticResource FontSizeL}"
-						    	      PathData="{StaticResource SummaryPath}"
+            <controls:PathRadioButton Content="Summary" PathData="{StaticResource SummaryPath}"
                                       Grid.Column="1" IsChecked="False"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSummary"/>
 
-            <controls:PathRadioButton Content="Breakdown" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource GraphPath}"
+            <controls:PathRadioButton Content="Breakdown" PathData="{StaticResource GraphPath}"
                                       Grid.Column="2" IsChecked="False"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateGraph"/>
 
-            <controls:PathRadioButton Content="Debts" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource PeoplePath}"
+            <controls:PathRadioButton Content="Debts" PathData="{StaticResource PeoplePath}"
                                       Grid.Column="3" IsChecked="False"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateDebts"/>
 
-            <controls:PathRadioButton Content="Themes" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource ThemePath}"
+            <controls:PathRadioButton Content="Themes"  PathData="{StaticResource ThemePath}"
                                       Grid.Column="5" IsChecked="False"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateThemes"/>
 
-            <controls:PathRadioButton Content="Settings" FontSize="{StaticResource FontSizeL}"
-							          PathData="{StaticResource SettingsPath}"
+            <controls:PathRadioButton Content="Settings" PathData="{StaticResource SettingsPath}"
                                       Grid.Column="6" IsChecked="False"
 							          Command="{Binding NavigateCommand}" CommandParameter="NavigateSettings"/>
         </Grid>

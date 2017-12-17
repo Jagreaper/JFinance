@@ -1,5 +1,5 @@
-﻿using JFinance.Models;
-using JFinance.Windows.WPF.Styles;
+﻿using Jagerts.Arie.Standard.Controls;
+using JFinance.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,11 +17,11 @@ namespace JFinance.Windows.WPF
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : Jagerts.Arie.Windows.Classic.Controls.Application
     {
         #region Fields
-
-        public Theme currentTheme;
+        
+        private ColorScheme currentColorScheme;
 
         #endregion
 
@@ -33,13 +33,13 @@ namespace JFinance.Windows.WPF
 
         public DirectoryInfo WorkingDirectory => new DirectoryInfo(this.WorkingPath);
 
-        public Theme CurrentTheme
+        public ColorScheme CurrentColorScheme
         {
-            get => this.currentTheme;
+            get => this.currentColorScheme;
             set
             {
-                this.currentTheme = value;
-                this.UpdateTheme(this.currentTheme);
+                this.currentColorScheme = value;
+                this.currentColorScheme.Apply();
             }
         }
 
@@ -63,7 +63,7 @@ namespace JFinance.Windows.WPF
             if (this.WorkingDirectory.Exists)
                 this.ReadTransactions();
 
-            this.CurrentTheme = Themes.ClassicBlueTheme;
+            this.currentColorScheme = ColorSchemes.Default;
 
             base.OnStartup(e);
         }
@@ -78,28 +78,6 @@ namespace JFinance.Windows.WPF
             File.WriteAllText(string.Format("{0}\\{1}", this.WorkingPath, "Transactions.json"), json);
 
             base.OnExit(e);
-        }
-
-
-        private void UpdateTheme(Theme theme)
-        {
-            this.Resources["AccentMainBrush"] = theme.AccentMainBrush;
-            this.Resources["AccentDarkBrush"] = theme.AccentDarkBrush;
-            this.Resources["SelectedBrush"] = theme.SelectedBrush;
-            this.Resources["ValidBrush"] = theme.ValidBrush;
-            this.Resources["InvalidBrush"] = theme.InvalidBrush;
-            this.Resources["AccentBrush"] = theme.AccentBrush;
-            this.Resources["MarkerBrush"] = theme.MarkerBrush;
-            this.Resources["StrongBrush"] = theme.StrongBrush;
-            this.Resources["MainBrush"] = theme.MainBrush;
-            this.Resources["PrimaryBrush"] = theme.PrimaryBrush;
-            this.Resources["AlternativeBrush"] = theme.AlternativeBrush;
-            this.Resources["MouseOverBrush"] = theme.MouseOverBrush;
-            this.Resources["BasicBrush"] = theme.BasicBrush;
-            this.Resources["SemiBasicBrush"] = theme.SemiBasicBrush;
-            this.Resources["HeaderBrush"] = theme.HeaderBrush;
-            this.Resources["ComplementaryBrush"] = theme.ComplementaryBrush;
-            this.Resources["BackgroundBrush"] = theme.BackgroundBrush;
         }
 
         #endregion

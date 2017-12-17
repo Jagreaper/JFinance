@@ -1,5 +1,4 @@
 ﻿using JFinance.Models;
-using JFinance.Windows.WPF.Styles;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -17,17 +16,15 @@ namespace JFinance.Windows.WPF.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Theme theme = ((App)App.Current).CurrentTheme;
-
             if (!(value is TransactionType))
                 throw new NotSupportedException();
 
             switch ((TransactionType)value)
             {
                 case TransactionType.Credit:
-                    return theme.ValidBrush;
+                    return Brushes.Green;
                 case TransactionType.Debit:
-                    return theme.InvalidBrush;
+                    return Brushes.Red;
                 case TransactionType.None:
                     return Brushes.Gray;
                 default:

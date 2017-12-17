@@ -53,20 +53,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Jagerts.Arie.Standard.Controls, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jagerts.Arie.Standard.Controls.0.0.2\lib\netstandard2.0\Jagerts.Arie.Standard.Controls.dll</HintPath>
+    <Reference Include="Jagerts.Arie.Standard.Controls, Version=0.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jagerts.Arie.Standard.Controls.0.0.5\lib\netstandard2.0\Jagerts.Arie.Standard.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Jagerts.Arie.Standard.Mvvm, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jagerts.Arie.Standard.Mvvm.0.1.0\lib\netstandard2.0\Jagerts.Arie.Standard.Mvvm.dll</HintPath>
     </Reference>
     <Reference Include="Jagerts.Arie.Windows.Classic.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jagerts.Arie.Windows.Classic.Controls.0.0.10\lib\net461\Jagerts.Arie.Windows.Classic.Controls.dll</HintPath>
+      <HintPath>..\packages\Jagerts.Arie.Windows.Classic.Controls.0.0.13\lib\net461\Jagerts.Arie.Windows.Classic.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll</HintPath>
     </Reference>
@@ -99,6 +100,7 @@
     <Compile Include="Converters\CategoryNamePiePlotterConverter.cs" />
     <Compile Include="Converters\AmountPiePlotterConverter.cs" />
     <Compile Include="Converters\CategoryNameLegendConverter.cs" />
+    <Compile Include="Converters\DrawingColorBrushConverter.cs" />
     <Compile Include="Selectors\IColorSelector.cs" />
     <Compile Include="Controls\Legend.xaml.cs">
       <DependentUpon>Legend.xaml</DependentUpon>
@@ -128,8 +130,6 @@
     <Compile Include="Selectors\IndexedColourSelector.cs" />
     <Compile Include="Selectors\ThemeDataTemplateSelector.cs" />
     <Compile Include="Selectors\TransactionsSelectionDataTemplateSelector.cs" />
-    <Compile Include="Styles\Theme.cs" />
-    <Compile Include="Styles\Themes.cs" />
     <Compile Include="ViewModels\GraphViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SummaryViewModel.cs" />
@@ -154,6 +154,10 @@
     <Page Include="Controls\PiePlotter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GraphView.xaml">
       <SubType>Designer</SubType>
@@ -181,10 +185,6 @@
     </Page>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </Page>
-    <Page Include="Resources\Styles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SummaryView.xaml">
       <SubType>Designer</SubType>
