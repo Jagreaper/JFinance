@@ -1,7 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:JFinance.Windows.WPF.Resources">
+                    xmlns:local="clr-namespace:JFinance.Windows.WPF.Resources"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Fonts.xaml"/>
+        <ResourceDictionary Source="Icons.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+
+    <sys:Double x:Key="FontSizeXXXS">8</sys:Double>
+    <sys:Double x:Key="FontSizeXXS">9</sys:Double>
+    <sys:Double x:Key="FontSizeXS">10</sys:Double>
+    <sys:Double x:Key="FontSizeS">11</sys:Double>
+    <sys:Double x:Key="FontSize">12</sys:Double>
+    <sys:Double x:Key="FontSizeL">13</sys:Double>
+    <sys:Double x:Key="FontSizeXL">18</sys:Double>
+    <sys:Double x:Key="FontSizeXXL">20</sys:Double>
+    <sys:Double x:Key="FontSizeXXXL">22</sys:Double>
+    <sys:Double x:Key="FontSizeXXXXL">26</sys:Double>
 </ResourceDictionary>
