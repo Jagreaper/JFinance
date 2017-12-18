@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JFinance.Windows.WPF.Views"
-             xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls"
+             xmlns:controls="clr-namespace:Jagerts.Arie.Windows.Classic.Controls;assembly=Jagerts.Arie.Windows.Classic.Controls"
+             xmlns:pie="clr-namespace:JFinance.Windows.WPF.Controls"
              xmlns:selectors="clr-namespace:JFinance.Windows.WPF.Selectors"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
@@ -26,9 +27,9 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Breakdown"/>
+        <controls:TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Breakdown"/>
 
-        <controls:PieChartLayout Grid.Row="1" PlottedProperty="Amount" CategoryName="Class"
+        <pie:PieChartLayout Grid.Row="1" PlottedProperty="Amount" CategoryName="Class"
                                  DataContext="{Binding CategorizedTransactions}" ColorSelector="{StaticResource IndexedColourSelector}"/>
     </Grid>
 </UserControl>

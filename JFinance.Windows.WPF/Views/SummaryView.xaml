@@ -32,24 +32,24 @@
 
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0 0 10 0">
-                            <TextBlock FontWeight="Bold" Text="Category"/>
-                            <TextBlock FontWeight="Bold" Text="Date"/>
-                            <TextBlock FontWeight="Bold" Text="Amount"/>
-                            <TextBlock FontWeight="Bold" Text="Description"/>
+                            <controls:TextBlock FontWeight="Bold" Text="Category"/>
+                            <controls:TextBlock FontWeight="Bold" Text="Date"/>
+                            <controls:TextBlock FontWeight="Bold" Text="Amount"/>
+                            <controls:TextBlock FontWeight="Bold" Text="Description"/>
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock Text="{Binding Category}"/>
-                            <TextBlock Text="{Binding Timestamp}"/>
-                            <TextBlock Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
-                                <TextBlock.Text>
+                            <controls:TextBlock Text="{Binding Category}"/>
+                            <controls:TextBlock Text="{Binding Timestamp}"/>
+                            <controls:TextBlock Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
+                                <controls:TextBlock.Text>
                                     <MultiBinding Converter="{StaticResource TransactionTypeDoubleToStringConverter}">
                                         <Binding Path="Amount"/>
                                         <Binding Path="TransactionType"/>
                                     </MultiBinding>
-                                </TextBlock.Text>
-                            </TextBlock>
-                            <TextBlock Text="{Binding Description}"/>
+                                </controls:TextBlock.Text>
+                            </controls:TextBlock>
+                            <controls:TextBlock Text="{Binding Description}"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -76,7 +76,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Margin="0 0 0 5" Text="Transactions"/>
+            <controls:TextBlock FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Margin="0 0 0 5" Text="Transactions"/>
 
             <ListBox Grid.Row="1" Margin="0 5 0 5" BorderThickness="0" ItemsSource="{Binding Transactions}" Background="Transparent"
                      HorizontalContentAlignment="Stretch" ItemTemplateSelector="{StaticResource TransactionsSelectionDataTemplateSelector}">
@@ -90,52 +90,52 @@
             </Grid.RowDefinitions>
 
             <StackPanel HorizontalAlignment="Right">
-                <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Overview"/>
+                <controls:TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Overview"/>
 
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Margin="0 0 20 0">
-                        <TextBlock FontWeight="Bold" Text="Balance"/>
-                        <TextBlock Margin="0 0 0 10" Text="{Binding BalanceString}"
-                                   Foreground="{Binding BalanceTransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Balance"/>
+                        <controls:TextBlock Margin="0 0 0 10" Text="{Binding BalanceString}"
+                                            Foreground="{Binding BalanceTransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}"/>
 
-                        <TextBlock FontWeight="Bold" Text="Income"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" Foreground="{DynamicResource ValidBrush}"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Income"/>
+                        <controls:TextBlock Margin="0 0 0 5" Text="{Binding IncomeString}" Foreground="{DynamicResource ValidBrush}"/>
                     </StackPanel>
 
                     <StackPanel>
-                        <TextBlock FontWeight="Bold" Text="Past"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Past"/>
                         <controls:ComboBox Margin="0 0 0 5" ItemsSource="{Binding ComboBoxItems}" SelectedItem="{Binding DurationString, Mode=TwoWay}"/>
 
-                        <TextBlock FontWeight="Bold" Text="Spendings"/>
-                        <TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" Foreground="{DynamicResource InvalidBrush}"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Spendings"/>
+                        <controls:TextBlock Margin="0 0 0 5" Text="{Binding SpendingsString}" Foreground="{DynamicResource InvalidBrush}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Add Transactions"/>
+                <controls:TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Add Transactions"/>
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                     <StackPanel Margin="0 0 20 0">
-                        <TextBlock FontWeight="Bold" Text="Amount"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddAmountString, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
-                                 BorderBrush="{Binding AddAmount, Converter={StaticResource DoubleToBrushValidationConverter}}" Width="142"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Amount"/>
+                        <controls:TextBox Margin="0 0 0 5" Text="{Binding AddAmountString, Mode=TwoWay}" Width="142"
+                                          BorderBrush="{Binding AddAmount, Converter={StaticResource DoubleToBrushValidationConverter}}"/>
 
-                        <TextBlock FontWeight="Bold" Text="Category"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddCategory, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
-                                 BorderBrush="{Binding AddCategory, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Category"/>
+                        <controls:TextBox Margin="0 0 0 5" Text="{Binding AddCategory, Mode=TwoWay}" Width="142"
+                                          BorderBrush="{Binding AddCategory, Converter={StaticResource StringToBrushValidationConverter}}"/>
                     </StackPanel>
 
                     <StackPanel>
-                        <TextBlock FontWeight="Bold" Text="Description"/>
-                        <TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
-                                 BorderBrush="{Binding AddDescription, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
-                        
-                        <TextBlock FontWeight="Bold" Text="Tags"/>
-                        <TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" FontSize="{StaticResource FontSize}" Background="Transparent"
-                                 BorderBrush="{Binding AddTags, Converter={StaticResource StringToBrushValidationConverter}}" Width="142"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Description"/>
+                        <controls:TextBox Margin="0 0 0 5" Text="{Binding AddDescription, Mode=TwoWay}" Width="142"
+                                          BorderBrush="{Binding AddDescription, Converter={StaticResource StringToBrushValidationConverter}}"/>
 
-                        <TextBlock FontWeight="Bold" Text="Date"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Tags"/>
+                        <controls:TextBox Margin="0 0 0 10" Text="{Binding AddTags, Mode=TwoWay}" Width="142"
+                                          BorderBrush="{Binding AddTags, Converter={StaticResource StringToBrushValidationConverter}}"/>
+
+                        <controls:TextBlock FontWeight="Bold" Text="Date"/>
                         <DatePicker SelectedDate="{Binding AddSelectedDate, Mode=TwoWay, TargetNullValue={x:Static system:DateTime.Now}}" Width="142" Background="Transparent"/>
                     </StackPanel>
                 </StackPanel>
@@ -156,7 +156,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <TextBlock FontWeight="Bold" Text="Transaction Type"/>
+                        <controls:TextBlock FontWeight="Bold" Text="Transaction Type"/>
                         <controls:ComboBox ItemsSource="{Binding TransactionComboBoxItems}" SelectedItem="{Binding AddTransactionType, Mode=TwoWay}" Width="142"/>
                     </StackPanel>
                 </StackPanel>
