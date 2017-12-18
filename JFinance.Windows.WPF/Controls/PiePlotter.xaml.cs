@@ -204,6 +204,7 @@ namespace JFinance.Windows.WPF.Controls
                     PieceValue = this.GetPlottedPropertyValue(item),
                     RotationAngle = accumulativeAngle,
                     Fill = this.ColorSelector != null ? this.ColorSelector.SelectBrush(item, myCollectionView.IndexOf(item)) : Brushes.Black,
+                    Stroke = Brushes.Transparent,
                     Tag = myCollectionView.IndexOf(item),
                     ToolTip = new ToolTip()
                 };
