@@ -17,7 +17,7 @@ namespace JFinance.Windows.WPF
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Jagerts.Arie.Windows.Classic.Controls.Application
+    public partial class App : Application
     {
         #region Fields
         
@@ -39,7 +39,9 @@ namespace JFinance.Windows.WPF
             set
             {
                 this.currentColorScheme = value;
-                this.currentColorScheme.Apply();
+
+                if (!this.currentColorScheme.IsApplied)
+                    this.currentColorScheme.Apply();
             }
         }
 
