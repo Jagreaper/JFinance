@@ -11,27 +11,35 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <UserControl.Resources>
-        <converters:DrawingColorBrushConverter x:Key="DrawingColorBrushConverter"/>
+        <ResourceDictionary>
+            <Style x:Key="CustomListBoxItemStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ArieListBoxItemStyle}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0 0 0 5"/>
+            </Style>
 
-        <DataTemplate DataType="{x:Type standard:ColorScheme}" x:Key="ThemeTemplate">
-            <controls:Button Width="130" Margin="0 3 0 3" BorderThickness="0 0 0 0" Padding="5 5"
-                             Command="{Binding ElementName=ListBox, Path=DataContext.SelectCommand}" CommandParameter="{Binding}">
-                <controls:Button.Content>
-                    <StackPanel>
-                        <controls:TextBlock Text="{Binding Name}"/>
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding WindowBackgroundBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
-                            <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding MainBorderBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
-                            <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding MainBackgroundBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
-                            <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding SelectedBackgroundBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
-                            <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding MainContentBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
+            <converters:DrawingColorBrushConverter x:Key="DrawingColorBrushConverter"/>
+
+            <DataTemplate DataType="{x:Type standard:ColorScheme}" x:Key="ThemeTemplate">
+                <controls:Button Width="130" Margin="0 3 0 3" BorderThickness="0 0 0 0" Padding="5 5"
+                                 Command="{Binding ElementName=ListBox, Path=DataContext.SelectCommand}" CommandParameter="{Binding}">
+                    <controls:Button.Content>
+                        <StackPanel>
+                            <controls:TextBlock Text="{Binding Name}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding WindowBackgroundBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
+                                <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding MainBorderBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
+                                <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding MainBackgroundBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
+                                <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding SelectedBackgroundBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
+                                <Rectangle Stroke="Black" Margin="0 0 2 0" Width="15" Height="15" Fill="{Binding MainContentBrush, Converter={StaticResource DrawingColorBrushConverter}}"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </controls:Button.Content>
-            </controls:Button>
-        </DataTemplate>
+                    </controls:Button.Content>
+                </controls:Button>
+            </DataTemplate>
 
-        <selectors:ThemeDataTemplateSelector x:Key="ThemeDataTemplateSelector" ThemeTemplate="{StaticResource ThemeTemplate}"/>
+            <selectors:ThemeDataTemplateSelector x:Key="ThemeDataTemplateSelector" ThemeTemplate="{StaticResource ThemeTemplate}"/>
+        </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -42,14 +50,14 @@
 
         <controls:TextBlock Margin="0 0 0 5" FontSize="{StaticResource FontSizeL}" FontWeight="Bold" Text="Themes"/>
 
-        <ListBox Grid.Row="1" x:Name="ListBox" Margin="0 5 0 5" BorderThickness="0" ItemsSource="{Binding ColorSchemes}" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                 ItemTemplateSelector="{StaticResource ThemeDataTemplateSelector}" Background="Transparent">
-            <ListBox.ItemsPanel>
+        <controls:ListBox x:Name="ListBox" Grid.Row="1" Margin="0 5 0 5" BorderThickness="0" ItemsSource="{Binding ColorSchemes}" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                          ItemContainerStyle="{StaticResource CustomListBoxItemStyle}" ItemTemplateSelector="{StaticResource ThemeDataTemplateSelector}" Background="Transparent">
+            <controls:ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Vertical"/>
                 </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>
+            </controls:ListBox.ItemsPanel>
+        </controls:ListBox>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <controls:PathButton Content="Save" IsEnabled="{Binding IsButtonEnabled}"
