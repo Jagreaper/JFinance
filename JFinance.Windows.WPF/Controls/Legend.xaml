@@ -46,11 +46,11 @@
                     <Rectangle Grid.Column="0" Width="13" Height="13" Tag="{Binding}"
                                Fill="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource ColourConverter}}"/>
 
-                    <controls:TextBlock Grid.Column="1" Margin="3" Tag="{Binding}"
-                                        Text="{Binding RelativeSource={RelativeSource self}, Converter={StaticResource CategoryNameLegendConverter}}"/>
+                    <TextBlock Grid.Column="1" Margin="3" Tag="{Binding}"
+                               Text="{Binding RelativeSource={RelativeSource self}, Converter={StaticResource CategoryNameLegendConverter}}"/>
 
-                    <controls:TextBlock Grid.Column="2" Margin="3" Tag="{Binding}"
-                                        Text="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource LegendConverter}}"/>
+                    <TextBlock Grid.Column="2" Margin="3" Tag="{Binding}"
+                               Text="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource LegendConverter}}"/>
                 </Grid>
             </DataTemplate>
         </controls:ListBox.ItemTemplate>

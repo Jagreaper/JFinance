@@ -32,24 +32,24 @@
 
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0 0 10 0">
-                            <controls:TextBlock FontWeight="Bold" Text="Category"/>
-                            <controls:TextBlock FontWeight="Bold" Text="Date"/>
-                            <controls:TextBlock FontWeight="Bold" Text="Amount"/>
-                            <controls:TextBlock FontWeight="Bold" Text="Description"/>
+                            <TextBlock FontWeight="Bold" Text="Category"/>
+                            <TextBlock FontWeight="Bold" Text="Date"/>
+                            <TextBlock FontWeight="Bold" Text="Amount"/>
+                            <TextBlock FontWeight="Bold" Text="Description"/>
                         </StackPanel>
 
                         <StackPanel>
-                            <controls:TextBlock Text="{Binding Category}"/>
-                            <controls:TextBlock Text="{Binding Timestamp}"/>
-                            <controls:TextBlock Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
-                                <controls:TextBlock.Text>
+                            <TextBlock Text="{Binding Category}"/>
+                            <TextBlock Text="{Binding Timestamp}"/>
+                            <TextBlock Foreground="{Binding TransactionType, Converter={StaticResource TransactionTypeToBrushConverter}}">
+                                <TextBlock.Text>
                                     <MultiBinding Converter="{StaticResource TransactionTypeDoubleToStringConverter}">
                                         <Binding Path="Amount"/>
                                         <Binding Path="TransactionType"/>
                                     </MultiBinding>
-                                </controls:TextBlock.Text>
-                            </controls:TextBlock>
-                            <controls:TextBlock Text="{Binding Description}"/>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Description}"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
