@@ -4,7 +4,7 @@
     xmlns:controls="clr-namespace:JFinance.Windows.WPF.Controls">
     <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 

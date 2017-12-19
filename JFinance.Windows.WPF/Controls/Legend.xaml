@@ -28,38 +28,31 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    
-    <Grid>
-        <StackPanel Orientation="Vertical">
-            <controls:TextBlock TextAlignment="Center" FontWeight="Bold"
-                                Text="{Binding Path=(pie:PieChartLayout.PlottedProperty), RelativeSource={RelativeSource AncestorType={x:Type pie:Legend}}}"/>
 
-            <ListBox Background="Transparent" Height="170" HorizontalContentAlignment="Stretch" BorderThickness="0" IsSynchronizedWithCurrentItem="True"
-                     ItemsSource="{Binding}" Margin="0" Name="legend">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid HorizontalAlignment="Stretch" Margin="3 3 3 3">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20"/>
-                                <ColumnDefinition Width="120"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+    <controls:ListBox Background="Transparent" ItemsSource="{Binding}" Name="legend"
+                      VerticalAlignment="Top" HorizontalContentAlignment="Stretch" IsSynchronizedWithCurrentItem="True">
+        <controls:ListBox.ItemTemplate>
+            <DataTemplate>
+                <Grid HorizontalAlignment="Stretch" Margin="3 3 3 3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                            <Rectangle Grid.Column="0" Width="13" Height="13" Tag="{Binding}"
-                                       Fill="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource ColourConverter}}"/>
+                    <Rectangle Grid.Column="0" Width="13" Height="13" Tag="{Binding}"
+                               Fill="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource ColourConverter}}"/>
 
-                            <controls:TextBlock Grid.Column="1" Margin="3" Tag="{Binding}"
-                                                Text="{Binding RelativeSource={RelativeSource self}, Converter={StaticResource CategoryNameLegendConverter}}"/>
+                    <controls:TextBlock Grid.Column="1" Margin="3" Tag="{Binding}"
+                                        Text="{Binding RelativeSource={RelativeSource self}, Converter={StaticResource CategoryNameLegendConverter}}"/>
 
-                            <controls:TextBlock Grid.Column="2" Margin="3" Tag="{Binding}"
-                                                Text="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource LegendConverter}}"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </StackPanel>
-    </Grid>
+                    <controls:TextBlock Grid.Column="2" Margin="3" Tag="{Binding}"
+                                        Text="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource LegendConverter}}"/>
+                </Grid>
+            </DataTemplate>
+        </controls:ListBox.ItemTemplate>
+    </controls:ListBox>
 </UserControl>
