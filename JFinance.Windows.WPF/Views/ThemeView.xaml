@@ -21,7 +21,7 @@
             <converters:DrawingColorBrushConverter x:Key="DrawingColorBrushConverter"/>
 
             <DataTemplate DataType="{x:Type standard:ColorScheme}" x:Key="ThemeTemplate">
-                <controls:Button Width="130" Margin="0 3 0 3" BorderThickness="0 0 0 0" Padding="5 5"
+                <controls:Button Width="130" Margin="0 0 0 0" BorderThickness="0 0 0 0" Padding="5 5"
                                  Command="{Binding ElementName=ListBox, Path=DataContext.SelectCommand}" CommandParameter="{Binding}">
                     <controls:Button.Content>
                         <StackPanel>
